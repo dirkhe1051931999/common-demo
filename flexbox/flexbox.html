@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* .box-1 { */
+      /* float: left;
+      height: 500px;
+      width: 500px;
+      border: solid 1px black; */
+      /* 一个元素 */
+      /* 左上角 */
+      /* display: flex; */
+      /* 右上角 */
+      /* justify-content: flex-end; */
+      /* 左下角 */
+      /* align-items: flex-end; */
+      /* 右下角 */
+      /* justify-content: flex-end;
+      align-items: flex-end; */
+      /* 顶部水平居中 */
+      /* justify-content: center;    */
+      /* 左垂直居中 */
+      /* align-items: center; */
+      /* 右垂直居中 */
+      /* justify-content: flex-end;
+      align-items: center; */
+      /* 垂直和水平居中 */
+      /* justify-content: center;
+      align-items: center; */
+      /* 底部水平居中 */
+      /* justify-content: center;
+      align-items: flex-end; */
+      /* 二、三个元素 */
+      /* display: flex; */
+      /* 水平两端对齐，项目之间的间隔都相等*/
+      /* justify-content: space-between; */
+      /* 左垂直两端对齐，项目之间的间隔相等  flex-direction: column ： 主轴为垂直方向，起点在上沿。*/
+      /* flex-direction: column;
+      justify-content: space-between; */
+      /* 垂直居中两端对齐，项目之间的间隔相等 flex-direction: column ： 主轴为垂直方向，起点在上沿。align-items这时就代表水平方向*/
+      /* flex-direction: column;
+      justify-content: space-between;
+      align-items: center; */
+      /* 右垂直两端对齐，项目之间的间隔相等 */
+      /* flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end; */
+      /* 水平居中两端对齐，项目之间的间隔都相等 */
+      /* justify-content: space-between;
+      align-items: center; */
+      /* 底部两端对齐，项目之间的间隔都相等 */
+      /* justify-content: space-between;
+      align-items: flex-end; */
+      /* 两元素左对角对齐 */
+      /* justify-content: space-between; */
+      /* 三元素左对角对齐 */
+      /* justify-content: space-between; */
+      /* 倒三角 */
+      /* justify-content: space-between; */
+      /* 十三元素换行操作 */
+      /* display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-content: space-between; */
+    /* } */
+    /* 三元素左对角对齐 */
+    /* span:nth-child(2){
+      align-self: center;
+    }
+    span:nth-child(3){
+      align-self: flex-end;
+    } */
+    /* 两元素左对角对齐 */
+    /* span:nth-child(2){
+      align-self: flex-end;
+    } */
+    /* 倒三角 */
+    /* span:nth-child(2){
+      align-self: flex-end;
+    } */
+     /* .box-1 span {
+      display: inline-block;
+      text-align: center;
+      color: #fff;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #000;
+    } */
+    /* .box-2 {
+        float: left;
+        width: 400px;
+        height: 400px;
+        border: solid 1px black;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+    }
+    .column {
+      flex-basis: 100%;
+      display:flex;
+      justify-content: space-between;
+
+    }
+    .column span{
+      display: inline-block;
+      text-align: center;
+      color: #fff;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #000;
+    } */
+    .box-3 {
+      width: 180px;
+      height: 190px;
+      border: solid 1px black;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .row{
+      flex-basis: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+    }
+    .box-3 span {
+      display: inline-block;
+      text-align: center;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div class='box-1'>
+    <span>一</span>
+     <span>二</span>
+    <span>三</span>
+   <span>四</span>
+    <span>五</span>
+    <span>六</span>
+    <span>七</span>
+    <span>八</span>
+    <span>九</span>
+    <span>十</span>
+    <span>十一</span>
+    <span>十二</span>
+    <span>十三</span>
+  </div> -->
+  <!-- 四元素占满4个对角 -->
+  <!-- <div class="box-2">
+    <div class="column">
+      <span>1</span>
+      <span>2</span>
+    </div>
+    <div class="column">
+      <span>3</span>
+      <span>4</span>
+    </div>
+  </div> -->
+  <div class="box-3">
+    <div class="row">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+    </div>
+    <div class="row">
+      <span>4</span>
+      <span>5</span>
+      <span>6</span>
+    </div>
+    <div class="row">
+      <span>7</span>
+      <span>8</span>
+      <span>9</span>
+    </div>
+  </div>
+</body>
+</html>

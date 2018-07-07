@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.js"></script>
+<script type="text/javascript">
+  $(function(){
+    // 1、驼峰转换
+    console.log($.camelCase("hello-world"))
+    // 2、检查父节点是否包含给定的dom节点，如果两者相同，则返回 false。
+    // $.contains = function (parent, node) {
+    //  return parent !== node && parent.contains(node)
+    // }
+    // true
+    console.log($.contains($(".parent")[0],$(".child")[0]))
+    // false
+    console.log($.contains($("body")[0],$("body")[0]))
+    // false
+    console.log($.contains($(".parent")[0],$(".parent")[0]))
+    // 3、each
+    $.each(['a','b','c'],function(index,item){
+      // 索引
+      console.log(index);
+      // 内容
+      console.log(item);
+    })
+    var obj = {name:"zepto","size":"micro"};
+    $.each(obj,function(key,value){
+      console.log(key);
+      console.log(value);
+    })
+    // 4、$.extend
+    var target = {"1":"2"}
+    var source = {"name":"zepto"}
+    $.extend(target,source);
+    console.log(target)
+    // 5、$.fn
+    $.fn.alert1 = function(){
+      alert(1);
+    }
+    $(".parent").alert1();
+    // 6、$.grep
+    console.log($.grep([1,2,3],function(item){
+      return item >1
+    }))
+    // 7、$.inArray 搜索数组中指定值并返回它的索引（如果没有找到则返回-1）。
+    console.log($.inArray("abc",["abc","123"]))
+    console.log($.inArray("abc",["123"]))
+    // 8、$.isArray 如果object是array，则返回ture。
+    // 9、$.isFunction  如果object是function，则返回ture.
+    // 10、$.isPlainObject 测试对象是否是纯粹的对象（通过 "{}" 或者 "new Object" 创建的），如果是，则返回true。
+    console.log($.isPlainObject(window)); //false
+    console.log($.isPlainObject({}));  //true
+    // 11、$.isWindow 确定参数是否为一个窗口（window对象），如果是则返回true。 这在处理iframe时非常有用，因为每个iframe都有它们自己的window对象
+    // 12、$.map
+    console.log($.map([-2,1,2,3],function(item,index){
+      if(item>1){return item*item}
+    }))
+    console.log($.map({1:1,2:2,3:3},function(item,index){
+      if(item>1){return item*item}
+    }))
+    // 12、$.parseJSON 接受一个标准格式的 JSON 字符串，并返回解析后的 JavaScript 对象。
+    // 13、$.trim 删除字符串开始和末尾的空白符。
+    // 14、$.type 获取JavaScript 对象的类型。
+    // 15、$.add 添加元素到匹配的元素集合
+    console.log($("ul").add("span")); // [ul, span, selector: Array(2)]
+    // 16、addClass 为每个匹配的元素添加指定的class类名
+    // 17、after 在每个匹配的元素后插入内容。
+    // 18、append 在每个匹配的元素末尾插入内容。
+    // 19、appendTo 将匹配的元素插入到目标元素的末尾（里面的后面）。
+    // 20、before 在匹配每个元素的前面（外面）插入内容。
+    // 21、children  获得每个匹配元素集合元素的直接子元素，如果selector存在，只返回符合css选择器的元素。
+    // 22、$('ol').children('*:nth-child(2n)')
+    // 23、clone 通过深度克隆来复制集合中的所有元素。
+    // 24、concat
+    console.log($("li").eq(0).concat([$("li").eq(1)]));
+    // 25、data 读取或写入dom的 data-* 属性。
+    console.log($("li").eq(0).data("he"));
+    // 26、each
+    $("form input").each(function(index){
+      console.log(this,index);
+    })
+    // 27、empty 从Zepto对象集合中移除所有的dom子节点。
+    // 28、filter
+    console.log($("form input").filter(function(index){
+      return index %2==0;
+    }))
+    // 29、find
+    console.log($("form").find('input,select'));
+    // 30、first 获取当前Zepto对象集合中的第一个元素。
+    console.log($("form").first()); // 返回form
+    // 31、forEach
+    $("form input").forEach(function(item,index,array){
+      console.log(item,index,array)
+    })
+    // 32、get
+    console.log($("form input").get(0));
+    // 33、has
+    console.log($("form").has('input'))
+    // 34、hasClass 是否有元素含有指定的class
+    // 35、height
+    console.log($("form").height());
+    // 36、hide  设置display 为 none 隐藏元素
+    // 37、index
+    console.log($("form").index());
+    // 38、insertAfter
+    // 39、insertBefore
+    // 40、is() 判断当前Zepto元素集合中的第一个元素是否符css选择器。
+    // 41、last() 获取Zepto集合对象中最后一个元素。
+    console.log($("form").last());
+    // 42、pluck
+    console.log($("form >*").pluck('nodeName'))
+    // 43、position 相对于第一个定位过的祖先元素
+    console.log($("form").position())
+    // 44、prop 它在读取属性值的情况下优先于 attr 多用于checked和selected 用户交互改变的属性
+    $("form input").eq(3).on("click",function(){
+      console.log(1);
+      console.log($(this).attr("checked"))
+      console.log($(this).prop("checked"))
+    })
+    // 45、scrollTop  获取页面上的滚动元素或者整个窗口已经滚动的像素值。
+    console.log($("form").scrollTop());
+    // 46、toggle 显示或隐藏匹配元素。 如果 setting为true，相当于show 法。
+    $("form input").toggle($("form input").eq(4).val()=="he");
+
+  })
+</script>
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+  <ul>
+    <li data-he="123">1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <span>hello</span>
+  <form action="">
+    <input type="text" value="1">
+    <input type="text" value="2">
+    <input type="text" value="3">
+    <input type="checkbox" value="checkbox">
+    <select name="" id=""></select>
+    <input type="text" value="he" style="display:none">
+  </form>
+
+</body>
+</html>

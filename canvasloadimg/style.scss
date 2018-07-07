@@ -1,0 +1,103 @@
+.productul{
+	position:relative;
+	left:0;
+	width:99%;
+	overflow:hidden;
+	margin:0px auto 5px auto;
+	ul{
+		width:100%;
+	}
+	li{
+		min-height:125px;
+		overflow:hidden;
+		background-color:#fff;
+		-webkit-box-shadow: 0 0 5px #ccc;
+		-moz-box-shadow:0 0 5px #ccc;
+		box-shadow:0 0 5px #ccc;
+		border:1px solid #f2f2f2;
+		margin:10px;
+	}
+	a{
+		width:100%;
+		display:block;
+		overflow:hidden;
+		.trigger-topleft{
+			width:0;
+			height:0;
+			border-top:60px solid #1aa818;
+			border-right:60px solid transparent;
+			position:relative;
+			z-index:990;
+			cursor:pointer;
+		}
+		.rexiao{
+			border-top-color:#d50806;
+		}
+		.xiangou{
+			border-top-color:#ff7301;
+		}
+		.zhuanshu{
+			border-top-color:#1aa818;
+		}
+		.shuxing{
+			position:relative;
+			z-index:999;
+			color:#fff;
+			transform:rotate(-45deg);
+			-ms-transform:rotate(-45deg);
+			-moz-transform:rotate(-45deg);
+			-webkit-transform:rotate(-45deg);
+			-o-transform:rotate(-45deg);
+			font-size:14px;
+			width:40px;
+			height:40px;
+			display:block;
+			padding-top:5px;
+			padding-left:10px;
+			cursor:pointer;
+		}
+		.leftimage{
+			width:100px;
+			height:100px;
+			img{
+				width:100%;
+				border:0;
+			}
+			canvas{
+				width:100px;
+				max-height:100px;
+				background:#fff url("./loading.gif") center center no-repeat;
+				background-size:15px auto;
+			}
+		}
+		.productcontent{
+			width:64%;
+			width:calc(100% -100px);
+			.ptitle{
+				font-size:16px;
+				color:#4a534e;
+				font-weight:bold;
+				display:block;
+				font-family:"Microsoft YaHei";
+			}
+			.pdes{
+				font-size:13px;
+				color:#999;
+				margin-top:5px;
+				display:block;
+			}
+			.pprice{
+				margin-top:10px;
+				font-size:14px;
+				color:#4a4a4a;		
+			}
+		}
+	}
+}
+.loaddiv{ 
+	width: 100%;
+	height: 100px; 
+	background: #fff url("./loading.gif") no-repeat center center; 
+	background-size: 18px 18px; 
+	display: none;
+}

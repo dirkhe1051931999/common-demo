@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.2/jquery.fullPage.css">
+  <style>
+    #myMenu{
+      width: 900px;
+      display: block;
+      position: fixed;
+      top: 20px;
+      z-index: 999;
+    }
+    #myMenu li{
+      float: left;
+      list-style: none;
+      margin-left: 20px;
+      text-align: center;
+    }
+    #myMenu a {
+      font-size: 24px;
+      color: red;
+    }
+    #fullpage .section{
+      font-size: 24px;
+      color: red;
+    }
+    .section:nth-child(3) div{
+      width: 200px;
+      margin:0 auto;
+    }
+    .btn{
+      position: fixed;
+      top: 100px;
+      z-index: 999;
+    }
+  </style>
+</head>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="./jquery-ui.min.js"></script>
+  <script src="./jquery.fullPage.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#fullpage').fullpage({
+        // 决定是否使用控制箭头向左向右移动幻灯片
+         controlArrows:true,
+         // 是否垂直居中网页中的内容
+         verticalCentered:true,
+         // 是否在窗口改变大小后，自动调整网页中字体的大小
+         resize:true,
+         // 每个屏幕滚动动画执行的时间
+         scrollingSpeed:700,
+         // 确定是否使用JavaScript和CSS3转换滚动在切片和幻灯片，如果为true则css3无效
+         css3:true,
+         // 定义在滚动屏幕中使用css3:true设置的过度效果，比如赛贝尔曲线
+         easingcss3:'ease',
+         // 定义每个section的CSS背景演示
+         sectionsColor: ['#254875', '#00FF00', '#254587', '#695684'],
+         // 定义导航的锚文本信息例如（#page1)
+         anchors: ['page1', 'page2', 'page3', 'page4'],
+         // 确定是否在URL中的锚点将在插件有任何影响
+         lockAnchors:false,
+         // 定义了用于垂直和水平滚动的过渡效果
+         easing:'easeInOutCubic',
+         // 定义屏幕滚动到第一个后，是否循序滚动到最后一个
+         loopTop:false,
+         // 定义屏幕滚动到最后一个后，是否循环滚动到第一个。
+         loopBottom:false,
+         // 定义水平的幻灯片是否循环切换
+         loopHorizontal:true,
+         // 义屏幕是否自动滚动，还是需要用户触发事件滚动
+         autoScrolling:true,
+         // 设置是否自适应整个窗口的空间,当为true时section将填充到整个页面，否者用户可以停留在网页的任何位置。
+         fitToSection:true,
+         // 定义是否使用浏览器默认的滚动条
+         scrollBar:false,
+         // 定义是否使用浏览器默认的滚动条
+         paddingTop:'10px',
+         // 显示一个小圆圈组成的快速导航栏
+         navigation: true,
+         // 结合参数navigation一起使用，用于设置navigation定义的菜单显示的位置，可以设置为left/right。
+         navigationPosition: 'right',
+         // 鼠标移动到快速导航上面的提示文本
+         navigationTooltips: ['fullPage.js', 'Powerful', 'Amazing', 'Simple'],
+         menu:'#myMenu',
+         // 回调函数
+         // 1.滚动到某一屏后
+         afterLoad:function(link,index){
+           var currentSection =$(this);
+           if(index===3){
+             console.log(currentSection);
+             console.log('is 3 section');
+           }
+           if(link==='page2'){
+             console.log('is 2 section')
+           }
+         },
+         // 滚动前
+         // index 是离开的“页面”的序号，从1开始计算；
+         // nextIndex 是滚动到的“页面”的序号，从1开始计算；
+         // direction 判断往上滚动还是往下滚动，值是 up 或 down。
+         onLeave:function(index,nextIndex,direction){
+           var currentSection = $(this);
+           // 离开第二个到了第三个
+           if(index==2){
+             console.log(currentSection);
+             console.log(nextIndex);
+             console.log(direction);
+             console.log('到了第三个,上一个是第二个');
+           }
+           if(nextIndex==3){
+             // return false 取消自动滚动
+             console.log(1111);
+             return false;
+           }
+            // 不常用的
+            // afterRender()
+            //   页面结构生成后的回调函数，或者说是页面初始化完成后的回调函数
+            // afterResize()
+            //   浏览器窗口尺寸改变后的回调函数
+            // afterSlideLoad(anchorLink,index,slideAnchor,slideIndex)
+            //   滚动到某一幻灯片后的回调函数，与afterLoad类似
+            // onSlideLeave(anchorLink,index,slideIndex,direction,nextSlideIndex)
+            //   在我们离开一个slide时，会触发一次此回调函数，与onLeave类似
+         }
+      })
+      // 方法函数
+      $('.btn').bind('click',function(){
+        // 设置section向上滚动
+        $.fn.fullpage.moveSectionUp();
+        // 设置section向下滚动
+        // $.fn.fullpage.moveSectionDown();
+        // 指定section index从0开始
+        // $.fn.fullpage.moveTo(3);
+        // 定义每个section/slide滚动的时间
+        // $.fn.fullpage.setScrollingSpeed(700);
+        // 设置幻灯片向右滑动
+        // $.fn.fullpage.moveSlideRight();
+        // 设置幻灯片向左滑动
+        // $.fn.fullpage.moveSlideLeft();
+      })
+    })
+
+
+  </script>
+<body>
+  <ul id="myMenu">
+    <li data-menuanchor="page1" class="active"><a href="#page1">First section</a></li>
+    <li data-menuanchor="page2"><a href="#page2">Second section</a></li>
+    <li data-menuanchor="page3"><a href="#page3">Third section</a></li>
+    <li data-menuanchor="page4"><a href="#page4">Fourth section</a></li>
+ </ul>
+ <input type="button" style="color:#000;font-size:24px;" value=点击 class="btn">
+  <div id="fullpage">
+    <div class="section">第一屏</div>
+    <div class="section">第二屏</div>
+    <div class="section">
+      <div class="slide">第三屏第一屏</div>
+      <div class="slide">第三屏第二屏</div>
+      <div class="slide">第四屏第三屏</div>
+      <div class="slide">第五屏第四屏</div>
+    </div>
+    <div class="section">第四屏</div>
+  </div>
+</body>
+
+</html>

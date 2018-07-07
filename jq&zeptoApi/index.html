@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style >
+  *{
+    margin:0;
+    padding: 0;
+  }
+</style>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+  /* jQuery([selector,[context]]) */
+  console.log($('div>p'));
+  $(document.body).css("background","black");
+  // 在文档的第一个表单中，查找所有的单选按钮
+  console.log($('input:radio',document.forms[0]))
+  /*jQuery(html,[ownerDocument])*/
+  $(function(){
+    $('<div>hello world</div>').appendTo('.test');
+    // 动态创建一个 div 元素（以及其中的所有内容），并将它追加到 body 元素中
+    $('<div>',{
+      "class":"test_valid",
+      text:"click me",
+      click:function(){
+        $(this).toggleClass("test2");
+      }
+    }).appendTo(".test")
+    // 创建一个 <input> 元素，同时设定 type 属性、属性值，以及一些事件。
+    $('<input>',{
+      type:'text',
+      val:"text",
+      focusin:function(){
+        // alert("focusin");
+      },
+      focusout:function(){
+        // alert("focusout");
+      }
+    }).appendTo(".test");
+  })
+    /* jQuery(callback)*/
+    $(function(){
+      // do something
+      // 等价于$(document).ready()
+    })
+    /* jQuery.holdReady(hold) */
+    // 延迟就绪事件，直到已加载的插件。
+    // $.holdReady(true);
+    // $.getScript("plugin.js",function(){
+    //   $.holdReady(false)
+    // })
+    /* each(callback) */
+     $(function(){
+       $('.test > span').each(function(i){
+         // console.log(this);
+         // console.log($(this));
+         this.innerHTML="span"+i;
+         // $(this).toggleClass("span"+i);
+         // $(this).text("hello");
+         // 跳出遍历
+         // return false;
+       })
+     })
+    /* size() */
+    // jQuery 对象中元素的个数
+    console.log($("div").size());
+    console.log($('div').length);
+    /* selector、context 、get([index]) 、index([selector|element]) */
+    $(function(){
+      $("ul")
+      // 返回传给jQuery()的原始选择器
+        .append("<li>"+$('ul').selector+"</li>")
+      // 返回传给jQuery()的原始的DOM节点内容，即jQuery()的第二个参数。那么context指向当前的文档(document)。
+        console.log($('ul').context)
+        console.log($('ul',document.body).context)
+        console.log($('.innerTest>span').get(0));
+        // 选择文档中所有图像作为元素数组，并用数组内建的 reverse 方法将数组反向。
+        console.log($('.innerTest>span').get().reverse());
+        //传递一个DOM对象，返回这个对象在原先集合中的索引位置
+        console.log($('.innerTest>span').index(document.getElementById('bar')));
+        //传递一个jQuery对象
+        console.log($('.innerTest>span').index($('#bar')));
+        //传递一组jQuery对象，返回这个对象中第一个元素在原先集合中的索引位置
+        console.log($('.innerTest>span').index($('.innerTest>span:nth-child(2)')));
+    })
+    /*数据缓存data*/
+    $(function(){
+      // 没什么卵用
+      $('.data').data("div-data","data");
+    })
+    /*queue(element,[queueName])*/
+    $(function(){
+      $("#show").on('click',function(){
+        var n = $(".queue").queue("fx");
+        // 显示在匹配元素上执行的函数队列的个数
+        console.log(n.length);
+      })
+      function resuIt(){
+        $('.queue').show("slow");
+        $('.queue').animate({left:"+=200"},2000);
+        $('.queue').slideToggle(1000);
+      }
+      resuIt()
+    })
+    /*queue(element,[queueName]) jQuery.extend(object)*/
+    $(function(){
+      // 给选择器提供新方法
+      jQuery.fn.extend({
+        check:function(){
+          return this.each(function(){this.checked=true})
+        },
+        uncheck:function(){
+          return this.each(function(){this.checked=false})
+        }
+      })
+      // 扩展jQuery对象本身
+      jQuery.extend({
+        min:function(a,b){return a<b?a:b},
+        max:function(a,b){return a>b?a:b}
+      })
+      $(".innerTest>input[type=checkbox]").check();
+      $(".innerTest>input[type=radio]").uncheck();
+      console.log(jQuery.min(1,2));
+      console.log(jQuery.max(3,4));
+    })
+    /*属性相关*/
+    $(function(){
+      // attr
+      console.log($('.innerTest>input').eq(1).attr('type'))
+      $('.innerTest>span').eq(2).attr({class:"innerSpan","data-span":"innerSpan"})
+      // class的值为innerHTML的值
+      $('.innerTest>span').eq(2).attr("class",function(){return this.innerHTML})
+
+      // removeAttr
+      $('.innerTest>span').eq(0).removeAttr("class");
+      // prop 获取在匹配的元素集中的第一个元素的属性值。
+      console.log($(".innerTest>input[type='checkbox").prop('checked'));
+      // 禁用所有checkbox
+      $(".innerTest>input[type='checkbox']").prop('checked',function(i,val){
+          return !val;
+      })
+      // addClass
+      $(".innerTest>span:nth-child(5)").addClass("span5 span_5")
+      // 加上不同的class
+      $(".innerTest>span").addClass(function(){
+        return "span_"+$(this).index();
+      })
+      // removeClass
+      $(".innerTest>span").eq(0).removeClass('span_0');
+      // 删除最后一个元素与上面重复的class
+      $(".innerTest>span:last").removeClass(function(){
+        return $(this).prev().attr('class');
+      })
+      // toggleClass 如果存在（不存在）就删除（添加）一个类。
+      // 点击三下添加一个类
+      let count = 1;
+      $('.innerTest>span').eq(5).on('click',function(){
+        $(this).toggleClass("highlight",count ++ % 3==0)
+      })
+      // 根据父元素添加类
+      $('.innerTest>span').eq(5).toggleClass(function(){
+        if($(this).parent().is(".innerTest")){
+          return "span_6"
+        }
+      })
+      // html和text
+      $(".innerTest>p").html(function(n){
+        $(this).text(n);
+        // 下面两者等价
+        $(this).each(function(i){
+          console.log($(this)[i].innerHTML)
+        });
+          console.log($(this).text())
+      })
+      // val 元素必须要有value
+      $('.innerTest>input').eq(0).val(function(){
+        return $(this).val() + "...";
+      })
+    })
+    /*css相关*/
+    $(function(){
+      // css
+      $(".innerTest>span").eq(0).css({'font-size':'24px','color':'red'})
+      // 点击时自动变大，用到了定时器的this指向，采用闭包解决
+      $('.innerTest>span').eq(1).on('click',function(){
+          let count = 1.2;
+          var _this = $(this);
+          setInterval(function(){
+            count++;
+          _this.css({
+               'font-size':parseFloat(15)*count +'px'
+          })
+          },500)
+      });
+      // offset 获取匹配元素在当前视口的相对偏移。
+      let offset_1 = $('.innerTest>span').eq(0).offset();
+      console.log(offset_1.left);
+      console.log(offset_1.top);
+      // position 获取匹配元素相对父元素的偏移。
+      let offset_2 = $('.innerTest>span').eq(0).position();
+      console.log(offset_2.left);
+      console.log(offset_2.top);
+      // scrollTop获取匹配元素相对滚动条顶部的偏移。
+      console.log($('.innerTest>span').eq(0).scrollTop());
+      // scrollLeft获取匹配元素相对滚动条左侧的偏移。
+      console.log($('.innerTest>span').eq(0).scrollLeft());
+      // height.width
+      console.log($('.innerTest>span').eq(0).height());
+      console.log($('.innerTest>span').eq(0).width());
+      // innerHeight、innerWidth获取第一个匹配元素内部区域高度（包括补白、不包括边框）。
+      console.log($('.innerTest>span').eq(0).innerHeight());
+      console.log($('.innerTest>span').eq(0).innerWidth());
+      // outerHeight、outerWidth获取第一个匹配元素外部高度（默认包括补白和边框）。
+      console.log($('.innerTest>span').eq(0).outerHeight());
+      console.log($('.innerTest>span').eq(0).outerWidth());
+    })
+    /*选择器相关(就不写基本的或者简单的选择器了)*/
+    $(function(){
+      // 空格：在给定的祖先元素下匹配所有的后代元素
+      // >：在给定的父元素下匹配所有的子元素
+      // +：一个有效选择器并且紧接着第一个选择器
+      // ~ ： 匹配元素之后的所有兄弟元素
+      // :first          ：获取第一个元素
+      // :last           ：获取最后一个元素
+      // :not(selector)  ：反向选择器
+      // :even           ：匹配所有索引值为偶数的元素，从 0 开始计数
+      // :odd            ：匹配所有索引值为奇数的元素，从 0 开始计数
+      // :eq(index)      ：匹配一个给定索引值的元素
+      // :gt(index)      ：匹配所有大于给定索引值的元素
+      // :lt(index)      ：匹配所有小于给定索引值的元素
+      // :header        ：匹配如 h1, h2, h3之类的标题元素
+      // :animated     ：匹配所有正在执行动画效果的元素
+      // :contain(text)   : 匹配包含给定文本的元素
+      // :empty()         : 匹配所有不包含子元素或者文本的空元素
+      // :has(selector)   : 匹配含有选择器所匹配的元素的元素
+      console.log($('.data:has(p)').text())
+      // :parent()        : 匹配含有子元素或者文本的元素
+      // :hidden 匹配所有不可见元素，或者type为hidden的元素
+      console.log($('.innerTest>h1:hidden'))
+      // :visible 匹配所有的可见元素
+      // [attribute]  匹配包含给定属性的元素。
+      console.log($('div[class]'))
+      // [attribute=value]
+      console.log($("input[type='button']"))
+      // [attribute!=value] 匹配所有不含有指定的属性，或者属性不等于特定值的元素。
+      console.log($("input[type!='button']"))
+      // [attribute^=value] 匹配给定的属性是以某些值开始的元素
+      console.log($("span[class^='span']"))
+      // [attribute$=value] 匹配给定的属性是以某些值结尾的元素
+      console.log($("span[class$='_2']"))
+      // [attribute*=value] 匹配给定的属性是以包含某些值的元素
+      console.log($("span[class*='_']"))
+      // [selector1][selector2][selectorN] 复合属性选择器，需要同时满足多个条件时使用。
+      console.log($("input[class][name='radio']"))
+      // :first-child 匹配第一个子元素 注意和+号的区别
+      console.log($('ul li:first-child'))
+      // ':last'只匹配一个元素，而此选择符将为每个父元素匹配一个子元素
+      console.log($('ul li:last-child'))
+    })
+      /*文档处理*/
+      // appendTo：把选择器的内容追加到appendTo里面的内容中和append:把append里面的内容追加到选择器中
+      // prepend(content)：向每个匹配的元素内部前置内容。
+      $(function(){
+        // after(content|fn)
+        // before(content|fn)
+        console.log($("p:nth-child(1)").after("<b>hello</b>"))
+        console.log($("p:nth-child(1)").before("<b>hello</b>"))
+        // insertAfter(content) 前者插到后者后面
+        $(".123").insertAfter(".456");
+        // insertBefore(content) 后者插到前者前面
+        $(".101112").insertBefore(".789");
+        // wrap(html|ele|fn) 把所有匹配的元素用其他元素的结构化标记包裹起来。
+        $("b:nth-child(1)").wrap("<div class='pchild'></div>")
+        // replaceWith(content|fn)
+        $(".replaceP").replaceWith("<b>replaceP</b>")
+        // empty()  删除匹配的元素集合中所有的子节点。
+        $(".emptyAll").empty()
+        // remove([expr]) 从DOM中删除所有匹配的元素
+        $(".remove").remove();
+        // filter
+        $(".filter").filter(function(idx){
+          console.log($(this));
+          return $("ol",this).length==0;
+        })
+        // is(expr|obj|ele|fn)
+        console.log($(".innerTest2").is("div"));
+        // find(expr|obj|ele|fn)
+        console.log($(".innerTest2").find("li"))
+        // add() 返回一个数组，包含添加过的元素
+        console.log($(".innerTest2").add("<p>---</p>"));
+      })
+        /* 动画 */
+        $(function(){
+          // show
+          $(".innerTest2 li").eq(0).show("slow");
+          // hide
+          $(".innerTest2 li").eq(1).hide("slow");
+          $(".innerTest2 li").eq(2).slideDown("slow");
+          $(".innerTest2 li").eq(2).fadeOut("slow");
+          $(".innerTest2 li").eq(2).fadeIn("slow");
+        })
+</script>
+<body>
+  <div class="test" style="width:500px;heigth:500px;border:solid 1px black">
+
+    <h1>测试区</h1>
+    <p>div>p</p>
+    <input type="text">
+    <br>
+    <span></span>
+    <span></span>
+    <ul></ul>
+    <ul class="ul">
+      <li>-</li>
+      <li>+</li>
+    </ul>
+    <div class="innerTest">
+      <h1 style="display:none">h1</h1>
+      <a href=""></a>
+      <span id="foo" class="span1" style="border:solid 1px black">1</span>
+      <span id="bar">2</span>
+      <span>3</span>
+      <span class="span4">4</span>
+      <span class="span4">5</span>
+      <span>6</span>
+      <input type="checkbox" value="checkbox1">一
+      <input type="radio" name="radio" class="radio">二
+      <input type="checkbox">三
+      <input type="checkbox">四
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+      <p class="filter">
+        <ol>
+          <li>hello</li>
+        </ol>
+      </p>
+    <div class="innerTest2" >
+        <li style="display:none">1</li>
+        <li>2</li>
+        <li>3</li>
+    </div>
+    <p class="replaceP">replaceP</p>
+    <p class="emptyAll">empty <b>123</b</p>
+    <p class="remove">empty <b>123</b</p>
+    <p class="123">123</p><div class="pdiv">456</div>
+    <p class="123">789</p><div class="101112">101112</div>
+    <div class="data"><p>有p</p></div>
+    <input type="button" id="show" value="show">
+    <div class="queue">queuequeuequeue</div>
+  </div>
+  <form action="">
+    <input type="radio" value="input:radio">
+  </form>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-touch-fullscreen" content="yes"  />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no">
+	<title>list</title>
+</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.fl{float:left;}
+		.fr{float:right;}
+	</style>
+	<link rel="stylesheet" href="./style.css">
+<body>
+		<section class="productul" id="productul">
+		<input type="hidden" id="pagenumlength" value="1">
+			<ul id="scrollAdd">
+				<li>
+				<a href="#">
+					<div class="leftimage fl">
+					 	<canvas data-src="./product1.png"></canvas>
+					</div>
+					<div class="productcontent fr">
+						<p class="ptitle ">这是标题</p>
+						<p class="pdes ">简介简介简介简介简介简介简介简介简介简介简介简介简介简介</p>
+						<p class="pprice ">这是注释</p>	
+					</div>
+				</a>
+				</li>
+				<li>
+				<a href="#">
+					<div class="leftimage fl">
+					 	<canvas data-src="./product1.png"></canvas>
+					</div>
+					<div class="productcontent fr">
+						<p class="ptitle ">这是标题</p>
+						<p class="pdes ">简介简介简介简介简介简介简介简介简介简介简介简介简介简介</p>
+						<p class="pprice ">这是注释</p>	
+					</div>
+				</a>
+				</li>
+				<li>
+				<a href="#">
+					<div class="leftimage fl">
+					 	<canvas data-src="./product1.png"></canvas>
+					</div>
+					<div class="productcontent fr">
+						<p class="ptitle ">这是标题</p>
+						<p class="pdes ">简介简介简介简介简介简介简介简介简介简介简介简介简介简介</p>
+						<p class="pprice ">这是注释</p>	
+					</div>
+				</a>
+				</li>
+			</ul>
+			<div class="loaddiv"></div>
+		</section>
+<script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.js"></script>
+<script src="./index.js"></script>
+<script >
+	$(function(){
+		loadCanvas();
+		$(window).scroll(scrollHandler);
+    	$("#productul").on("touchmove",scrollHandler);
+	})
+</script>
+</body>
+</html>

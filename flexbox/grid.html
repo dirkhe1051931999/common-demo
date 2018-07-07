@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .container{
+    width: 80%;
+  }
+  .grid {
+    display: flex;
+    margin:30px auto;
+    width: 100%;
+    text-align: center;
+    border-radius:6px;
+    background-color: #eee;
+    box-shadow: 0 2px 10px 0 #111 ,
+                insert 0 2px 0 0 #fff;
+  }
+  .grid .grid-cell{
+      margin: 10px;
+      height: 30px;
+      border-radius: 5px;
+      background-color: #454545;
+      line-height: 30px;
+      text-align: center;
+      color: #fff;
+  }
+  .grid1 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .grid1 .grid-cell{
+    flex:1;
+  }
+  .grid1 .u-lof2 {
+    flex:0 0 50%;
+  }
+  .grid1 .u-lof3{
+    flex: 0 0 33.333%;
+  }
+  .grid1 .u-lof4{
+    flex: 0 0 25%
+  }
+
+  .holy-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .holy-grid .header,
+  .holy-grid .footer{
+    flex:1;
+    height: 40px;
+    background-color: #676767;
+    line-height: 40px;
+    color: #fff;
+  }
+  .holy-grid .header {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+  .holy-grid .footer {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .holy-grid .content{
+    display: flex;
+    flex:1;
+    min-height: 300px;
+    line-height: 300px;
+  }
+  .holy-grid .nav,
+  .holy-grid .ads{
+    flex: 0 0 70px;
+  }
+  .holy-grid .main{
+    flex:1;
+  }
+  .holy-grid .nav {
+    order: 1;
+    background-color: #a1a1a1;
+  }
+  .holy-grid .ads {
+    background-color: #d3d3d3;
+  }
+
+  .Media {
+    display: flex;
+    align-items: flex-start;
+
+  }
+  .Media-figure {
+    margin-right: 1em;
+    width: 200px;
+    height: 100px;
+  }
+  .Media-body {
+    border-radius: 5px;
+    background-color: #eee;
+    flex:1;
+    height: 100px;
+  }
+  .Media-body .body-title{
+    font-weight: bold;
+    margin:0;
+  }
+  .Media-body .body-content {
+    margin:0;
+  }
+</style>
+<body>
+  <div class="container">
+    <h1>网格布局</h1>
+    <div class="grid grid1">
+      <div class="grid-cell u-lof2" >1/2</div>
+      <div class="grid-cell">auto</div>
+      <div class="grid-cell u-lof3">1/3</div>
+      <div class="grid-cell u-lof3">1/3</div>
+      <div class="grid-cell">auto</div>
+      <div class="grid-cell u-lof3">1/3</div>
+      <div class="grid-cell u-lof4">1/4</div>
+      <div class="grid-cell u-lof3">1/3</div>
+      <div class="grid-cell">auto</div>
+    </div>
+    <h1>圣杯布局</h1>
+    <div class="grid holy-grid">
+      <div class="header">header</div>
+      <div class="content">
+        <div class="nav">nav</div>
+        <div class="main">main</div>
+        <div class="ads">ads</div>
+      </div>
+      <div class="footer">footer</div>
+    </div>
+    <h1>悬挂式布局</h1>
+    <div class="Media">
+      <img src="./jr.png" alt="" class="Media-figure">
+      <div class="Media-body">
+        <p class="body-title">JR禁赛真正原因曝光：他向助教身上撒了一碗汤</p>
+        <div class="body-content">
+          腾讯体育讯（文/Brian Windhorst和Dave McMenamin，ESPN撰稿人） 北京时间3月3日，据ESPN报道，骑士后卫JR-史密斯被球队禁赛一场的原因曝光，原来是因为他向助理教练达蒙-琼斯身上撒了一碗汤。
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

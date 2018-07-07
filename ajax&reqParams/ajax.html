@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<button id="btn">123</button>
+</body>
+<script>
+  // $.ajax({
+  //   url:"http://www.iiiiqwe.cn:81/WriteBlog/ajax&reqParams/api.php",
+  //   type:"GET",
+  //   // dataType: 'json',
+  //   // crossDomain: true,
+  //   // dataType:"jsonp",//数据类型：jsonp
+  //   // crossDomain: true,//是否跨域:是
+  //   // jsonp: "callback",//callback或者jsoncallback或者jsonpcallback;传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+  //   // jsonpCallback: "1527502727544",//自定义jsonp回调函数名称,可以随意起名，或者根据项目规范命名,默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据;ruo自定义的函数名是js中的function会执行下面函数function
+  //   // beforeSend:function(xhr){
+  //   //   xhr.setRequestHeader("X-Channel-Code","official");
+  //   //   xhr.setRequestHeader("X-Client-Agent","Xiaomi");
+  //   //   xhr.setRequestHeader("X-Client-Hash","2f3d6ffkda95dlz2fhju8d3s6dfges3t");
+  //   //   xhr.setRequestHeader("X-Client-ID","123456789123456");
+  //   //   xhr.setRequestHeader("X-Client-Version","2.3.2");
+  //   //   xhr.setRequestHeader("X-Long-Token","");
+  //   //   xhr.setRequestHeader("X-Platform-Type","0");
+  //   //   xhr.setRequestHeader("X-Platform-Version","5.0");
+  //   //   xhr.setRequestHeader("X-Serial-Num","1492140134");
+  //   //   xhr.setRequestHeader("X-User-ID","");
+  //   // },
+  //   // async:false,
+  //   success:function(res){
+  //     // if(res && res.resultcode == '200'){
+  //       // console.log(res);
+  //     // }
+  //     console.log(res);
+  //   },
+  //   // error:function(err){
+  //   //   console.log(err)
+  //   // }
+  // })
+  // function addScriptTag(src){
+  //   var script = document.createElement("script");
+  //   script.setAttribute("type","text/javascript");
+  //   script.src=src;
+  //   document.body.appendChild(script);
+  // }
+  // $(function(){
+  //   addScriptTag("https://m.toutiao.com/list/?tag=__all__&ac=wap&count=20&format=json_raw&as=A125A8CEDCF8987&cp=58EC18F948F79E1&min_behot_time=1527504222&callback=__jp0");
+  // })
+  // function __jp0(data){
+  //   console.log(data);
+  // }
+$(function(){
+  $("#btn").on("click",function(){
+
+  })
+})
+  $.ajax({
+    type:"POST",
+    url:"http://www.iiiiqwe.cn:81/api/",
+    data:{
+      "method":"get",
+      "url":"http://api.izhangchu.com",
+      "hasParams":"true",
+      "params":"methodName=DishesView&dishes_id=1204"
+    },
+    success:function(res){
+      console.log(res);
+    },
+  })
+</script>
+</html>
