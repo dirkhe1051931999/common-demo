@@ -1,4 +1,4 @@
-# demo
+# writeBlog
 自己总结的demo<br/>
 > 
 1. Tool：**javascript工具**<br/>
@@ -7,6 +7,7 @@
 4. flexbox:**flexbox的DEMO**<br/>
 5. fullPage：**基于jq的全屏滚动插件**<br/>
 6. iscroll：**基于iscroll的上拉加载下拉刷新**<br/>
-7. jq&zeptoApi：j**q和zeptoAPI整理**<br/>
+7. jq&zeptoApi：**jq和zeptoAPI整理**<br/>
+8. sanjiliandong:**基于require的三级联动**<br/>
 # 个人博客
 [https://www.cnblogs.com/dirkhe/](https://www.cnblogs.com/dirkhe/)
