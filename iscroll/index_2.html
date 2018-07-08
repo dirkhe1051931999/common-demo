@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.js"></script>
+<script src="./iscroll.js"></script>
+<script src="./iscroll-probe.js"></script>
+<style>
+	
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+ 
+html {
+	-ms-touch-action: none;
+}
+ 
+body,ul,li {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+ 
+body {
+	font-size: 12px;
+	font-family: ubuntu, helvetica, arial;
+	overflow: hidden; /* this is important to prevent the whole page to bounce */
+}
+ 
+#header {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	background: #CD235C;
+	padding: 0;
+	color: #eee;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+ 
+#footer {
+	position: absolute;
+	z-index: 2;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 48px;
+	background: #444;
+	padding: 0;
+	border-top: 1px solid #444;
+}
+ 
+#wrapper {
+	position: absolute;
+	z-index: 1;
+	top: 45px;
+	bottom: 48px;
+	left: 0;
+	width: 100%;
+	background: #ccc;
+	overflow: hidden;
+}
+ 
+#scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+ 
+#scroller ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	text-align: left;
+}
+ 
+#scroller li {
+	padding: 0 10px;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #fff;
+	background-color: #fafafa;
+	font-size: 14px;
+}
+#pullDown,#pullUp,.pulldown-tips{
+	height:40px;
+	line-height:40px;
+	text-align:center;
+}
+.pulldown-tips{
+		position:absolute;
+		top:-40px;
+		left:0;
+		width:100%;
+}
+</style>
+<body>
+<div id="header">iScroll</div>
+<div id="wrapper">
+	<div id="scroller">
+	<div id="pullDown" class=""><div class="pullDownLabel"></div></div>
+		<div class="pulldown-tips">↓下拉刷新</div>
+		<ul id="list">
+			<li>Pretty row 1</li>
+			<li>Pretty row 2</li>
+			<li>Pretty row 3</li>
+			<li>Pretty row 4</li>
+			<li>Pretty row 1</li>
+			<li>Pretty row 2</li>
+			<li>Pretty row 3</li>
+			<li>Pretty row 4</li>
+			<li>Pretty row 1</li>
+			<li>Pretty row 2</li>
+			<li>Pretty row 3</li>
+			<li>Pretty row 4</li>
+			<li>Pretty row 1</li>
+			<li>Pretty row 2</li>
+			<li>Pretty row 3</li>
+			<li>Pretty row 4</li>
+		</ul>
+		<div id="pullUp" class="">
+		<div class="pullUpLabel">加载更多</div>
+		</div>
+	</div>
+</div>
+ 
+<div id="footer"></div>
+
+<script>
+$(function(){
+		var myScroll,
+		pullDown = $("#pullDown"),
+		pullUp = $("#pullUp"),
+		pullDownLabel = $(".pullDownLabel"),
+		pullUpLabel = $(".pullUpLabel"),
+		container = $('#list'),
+		loadingStep = 0;//加载状态0默认，1显示加载状态，2执行加载数据，只有当为0时才能再次加载，这是防止过快拉动刷新
+
+		pullDown.hide();
+		pullUp.hide();
+		myScroll = new IScroll("#wrapper", {
+			scrollbars: true,
+			mouseWheel: false,
+			interactiveScrollbars: true,//用户是否可以拖动滚动条
+			shrinkScrollbars: 'scale', //按比例的收缩滚动条
+			fadeScrollbars: true,  //是否渐隐滚动条
+			scrollY:true,
+			probeType: 2, //probeType：2  滚动时每隔一定时间触发
+			bindToWrapper:true //光标、触摸超出容器时，是否停止滚动
+		});
+		myScroll.on("scroll",function(){
+			if(loadingStep == 0 && !pullDown.attr("class").match('refresh|loading') && !pullUp.attr("class").match('refresh')){
+				if(this.y > 60){//下拉刷新操作
+					$(".pulldown-tips").hide();
+					pullDown.addClass("refresh").show();
+					pullDownLabel.text("松手刷新数据");
+					loadingStep = 1;
+					myScroll.refresh();
+				// 上拉加载
+				}else if(this.y < (this.maxScrollY - 20)){//上拉加载更多
+					pullUp.addClass("refresh").show();
+					pullUpLabel.text("↑上拉加载");
+					loadingStep = 1;
+					pullUpAction();
+				}
+			}
+		});
+		// 下拉刷新
+		myScroll.on("scrollEnd",function(){
+			if(loadingStep == 1){
+				if( pullDown.attr("class").match("refresh") ){//下拉刷新操作
+					pullDown.removeClass("refresh").addClass("loading");
+					pullDownLabel.text("正在刷新");
+					loadingStep = 2;
+					pullDownAction();
+				}
+			}
+		});
+		function pullDownAction(){
+			var li;
+			setTimeout(function(){
+				$.ajax({
+				  type: 'GET',
+				  url: './test.php',
+				  dataType: 'json',
+				  timeout: 300,
+				  success: function(data){
+					li = "<li>"+ data +"</li>";
+					container.prepend(li);
+				  },
+				  error: function(xhr, type){
+				    alert('Ajax error!')
+				  }
+				})
+				pullDown.attr('class','').hide();
+				myScroll.refresh();
+				loadingStep = 0;
+				$(".pulldown-tips").show();
+			},500);
+		}
+		function pullUpAction(){
+			setTimeout(function(){
+				$.ajax({
+				  type: 'GET',
+				  url: './test.php',
+				  dataType: 'json',
+				  timeout: 300,
+				  success: function(data){
+					li = "<li>"+ data +"</li>";
+					container.append(li);
+				  },
+				  error: function(xhr, type){
+				    alert('Ajax error!')
+				  }
+				})
+				pullUp.attr('class','').hide();
+				myScroll.refresh();
+				loadingStep = 0;
+			},500);
+		}
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+})
+</script>	
+</body>
+</html>
