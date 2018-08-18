@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册与登录</title>
+	<link rel="stylesheet" href="css.css" type="text/css" />
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="listtalk.js"></script>
+</head>
+
+<body>
+	<div class="header">基本的表单登录与注册</div>
+
+	<div id="container">
+		<div id="sidebar">
+        
+        	<div id="user" class="header header-user" style="margin-bottom: 10px;display: block;">
+            	<h4>用户： <span id="userinfo"></span> <a href="javascript:;" id="logout" style="color: black;">退出</a></h4>
+            </div>
+        
+			<!-- 注册 -->   
+			<div id="reg" >
+			  <h1 class="register-title">注册</h1>
+				  <div class="register">
+				    <input type="text" class="register-input" name="username" id="username1" placeholder="请输入帐号">
+				    <p id="verifyUserNameMsg"></p>
+				    <input type="password" class="register-input" name="password" id="password1" placeholder="请输入密码">
+				    <input type="button" value="注册" class="register-button" id="btnReg">
+				  </div>
+			</div>
+			<!-- 登陆 -->
+			<div id="login">
+				<h1 class="register-title">登录</h1>
+				  <div class="register">
+				    <input type="text" name="username2" id="username2" class="register-input" placeholder="请输入帐号">
+				    <input type="password" class="register-input" name="password2" id="password2" placeholder="请输入密码">
+				    <input type="button" value="登录" class="register-button" id="btnLogin">
+				  </div>
+			</div>
+			
+		
+
+		</div>
+
+	</div>
+
+	
+
+	   
+	
+</body>
+</html>

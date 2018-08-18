@@ -9,5 +9,6 @@
 6. iscroll：**基于iscroll的上拉加载下拉刷新**<br/>
 7. jq&zeptoApi：**jq和zeptoAPI整理**<br/>
 8. sanjiliandong:**基于require的三级联动**<br/>
+9. php-mysql-ajax-js-login-reg:**php+ajax+mysql的表单登录与注册**<br/>
 # 个人博客
 [https://www.cnblogs.com/dirkhe/](https://www.cnblogs.com/dirkhe/)
