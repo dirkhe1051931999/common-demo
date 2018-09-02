@@ -1,4 +1,4 @@
-# vue-city-2
+# vue-city
 
 > A Vue.js project
 
