@@ -28,6 +28,11 @@
   - localhost:8080/userInfo 已经登录后才能看到页面
   - localhost:8080/logout 退出登录
 
+13. vue2.x **vue2.4 的几个特性**
+
+- npm install
+- npm run dev
+
 ## 个人博客
 
 [https://www.cnblogs.com/dirkhe/](https://www.cnblogs.com/dirkhe/)
