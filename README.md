@@ -33,6 +33,12 @@
 - npm install
 - npm run dev
 
+14. koa-upload **koa实现图片上传**
+
+- npm install
+- 服务端 node server/app.js
+- 客户端：npm run dev
+
 ## 个人博客
 
 [https://www.cnblogs.com/dirkhe/](https://www.cnblogs.com/dirkhe/)
