@@ -1,0 +1,200 @@
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  font-size: @base-font-size;
+  color: #666;
+  // background: rgba(238, 238, 238, 0.6);
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 80em;
+}
+
+.right-container {
+  position: relative;
+  margin-left: 12em;
+  padding: 5em 1em 1em;
+}
+
+a {
+  position: relative;
+  &:after {
+    content: "";
+    width: 0;
+    height: 1px;
+    background: @base-color;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transition: all .8s;
+  }
+  &:hover {
+    color: @base-color;
+  }
+  &:hover:after {
+    left: 0%;
+    width: 100%;
+  }
+  &.no-underline:hover:after {
+    left: 50%;
+    width: 0;
+  }
+}
+
+.btn-default {
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  color: #555;
+  border: 1px solid #d8dce5;
+  border-radius: 0.2em;
+  cursor: pointer;
+  background-color: #fff;   
+  outline: none;
+
+  &:hover {
+    color: @base-color;
+    border-color: #c6e2ff;
+    background-color: #ecf5ff;
+  }
+}
+
+.btn-primary {
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  color: #fff;
+  border-radius: 0.2em;
+  cursor: pointer;
+  border: 1px solid @base-color;
+  background-color: @base-color;  
+  outline: none;
+  
+  &:hover {
+    opacity: .8;
+  }
+}
+
+//滚动条样式
+::-webkit-scrollbar {
+  width: 3px;
+  height: 6px;
+} /* 这是针对缺省样式 (必须的) */
+::-webkit-scrollbar-track {   
+  background-color:  rgba(230, 230, 230, 0.6);   
+} /* 滚动条的滑轨背景颜色 */
+      
+::-webkit-scrollbar-thumb { 
+  width: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+} /* 滑块颜色 */
+
+::-webkit-scrollbar-button {
+  background-color: rgba(0, 0, 0, 0.2);
+} /* 滑轨两头的监听按钮颜色 */ 
+
+::-webkit-scrollbar-corner {
+  background-color: rgba(0, 0, 0, 0.05);
+} /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+::-webkit-scrollbar-button{
+  background-color: rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar:horizontal{
+  width: 3px;
+  height:6px;
+}
+
+.scrollX-hidden {
+  overflow-x: hidden;
+}
+
+.scrollY-overlay {
+  overflow-y: hidden !important;
+}
+
+.scrollY-overlay:hover {
+  overflow-y: auto;
+  overflow-y: overlay !important;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 50000;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+// vue组件 transition
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s ease;
+}
+.fade-enter, .fade-leave-to {
+  transform: translate(-50%, -2em);
+  opacity: 0;
+}
+
+// 表单样式
+.form-group {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5em;
+  box-sizing: border-box;
+  .form-label {
+    margin-bottom: 0.7em;
+    color: #999;
+  }
+  input,
+  textarea,
+  select {
+    display: block;
+    width: 100%;
+    padding: 0 1em;
+    line-height: 3em;
+    border: 1px solid #ccc;
+    border-radius: 0.2em;
+    outline: none;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: @base-color;
+    }
+  }
+  select {
+    height: 3em;
+  }
+}
+.col-6 {
+  width: 50%;
+  padding: 0 0.7em;
+  box-sizing: border-box;
+}
+.col-12 {
+  width: 100%;
+  padding: 0 0.7em;
+  box-sizing: border-box;
+}
+.mb0 {
+  margin-bottom: 0;
+}

@@ -39,6 +39,12 @@
 - 服务端 node server/app.js
 - 客户端：npm run dev
 
+15. vue-messageBox-pagination **vue实现全局注册弹窗组件，vue实现分页组件**
+
+- npm install
+- npm run dev
+- 访问 http://localhost:8081/#/pagination
+
 ## 个人博客
 
 [https://www.cnblogs.com/dirkhe/](https://www.cnblogs.com/dirkhe/)
