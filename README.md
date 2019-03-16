@@ -33,17 +33,32 @@
 - npm install
 - npm run dev
 
-14. koa-upload **koa实现图片上传**
+14. koa-upload **koa 实现图片上传**
 
 - npm install
 - 服务端 node server/app.js
 - 客户端：npm run dev
 
-15. vue-messageBox-pagination **vue实现全局注册弹窗组件，vue实现分页组件**
+15. vue-messageBox-pagination **vue 实现全局注册弹窗组件，vue 实现分页组件**
 
 - npm install
 - npm run dev
 - 访问 http://localhost:8081/#/pagination
+
+15. githubOAuth **vue+koa 实现 github 授权登录**
+
+- 准备前提
+
+1. 在 github 的 setting 中找到 client_id 和 client_secret，具体参考[怎么得到 client_id 和 client_secret](https://zhuanlan.zhihu.com/p/35392186)
+2. 搭建前端和后端服务器，我这里前端是 vue，后端是 koa
+3. webpack 注意代理的设置
+4. 安装 nodemon
+
+- 开启环境
+
+1. npm install 
+2. npm run server（localhost:1111）
+3. npm run dev（localhost:3000）
 
 ## 个人博客
 
