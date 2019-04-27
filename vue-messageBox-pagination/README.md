@@ -1,21 +1,9 @@
-# step11
+# vue-messagebox-pagination
 
-> A Vue.js project
+> vue 实现全局注册弹窗组件，vue 实现分页组件
 
-## Build Setup
-
-``` bash
-# install dependencies
+```bash
 npm install
-
-# serve with hot reload at localhost:8080
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+# 访问 http://localhost:8081/#/pagination
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

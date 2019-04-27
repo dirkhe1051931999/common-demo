@@ -1,37 +1,44 @@
-## github 授权登录
+# githubOAuth
 
-###[源代码地址]
+> github 授权登录
 
-### 准备前提
+## 准备前提
 
 1. 在 github 的 setting 中找到 client_id 和 client_secret，具体参考[怎么得到 client_id 和 client_secret](https://zhuanlan.zhihu.com/p/35392186)
 2. 搭建前端和后端服务器，我这里前端是 vue，后端是 koa
 3. webpack 注意代理的设置
 4. 安装 nodemon
 
-### 开启环境
+## 开启环境
 
-1. npm install
-2. npm run server
-3. npm run dev
+```bash
+npm install
+npm run server
+npm run dev
+```
 
-### 前端
+## 前端
 
 1. 评论页/comment
-   ## 点击登录
+
+   - 点击登录
+
    1. 跳转 github 授权页，`https://github.com/login/oauth/authorize?client_id=${this.client_id}&redirect_uri=http://127.0.0.1:3000/login&scope=user:email`，需要带上 client_id 和 client_secret 这两个参数
    2. 保存当前 URI
    3. 授权成功后跳转 login 页，跳的时候会带上 code
-   ## 页面初始化
+
+   - 页面初始化
+
    1. 判断是否是是从 URI 那块跳过来的，如果是，则移除 URI，并做一些键盘初始化的操作
    2. 获取 token 和用户信息，并显示到页面上
+
 2. 登录页/login
-   ## 页面初始化
+
    1. 请求后台接口，需要带上 code
    2. 保存 token 和用户信息
    3. 获取到点击登录的 URL，并跳转过去
 
-### 服务端
+## 服务端
 
 1. 接收到传来的 code，请求https://github.com/login/oauth/access_token post 请求，带上 client_id,client_secret,code 三个参数
 2. 上一个接口会获取到 token，再请求' https://api.github.com/user?access_token=' + token
@@ -40,7 +47,7 @@
 5. 第三步如果失败，设置授权失败接口数据
 6. cache 出异常，并且提示授权失败
 
-### 授权 9 大步骤
+## 授权 9 大步骤
 
 1. 点击 github 登录
 2. 发送授权请求 https://github.com/login/oauth/authorize

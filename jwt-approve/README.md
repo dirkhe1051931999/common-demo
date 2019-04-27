@@ -1,21 +1,13 @@
-# jwt-koa
+# jwt-approve
 
-> A Vue.js project
+> jwt 实现用户认证
 
-## Build Setup
-
-``` bash
-# install dependencies
+```bash
 npm install
-
-# serve with hot reload at localhost:8080
+nodemon server/jwt.js
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+# localhost:8080/login 登录
+# localhost:8080/getdata 被过滤的接口页面
+# ocalhost:8080/userInfo 已经登录后才能看到页面
+# localhost:8080/logout 退出登录
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
