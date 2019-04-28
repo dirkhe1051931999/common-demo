@@ -8,7 +8,7 @@
 
 | #   | 名称                                                                                                                   | 简介                                                                 |
 | --- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| 1   | [calendar](https://github.com/dirkhe1051931999/common-demo/tree/master/calendar)                   | 日历组件                                                             |
+| 1   | [calendar](https://github.com/dirkhe1051931999/common-demo/tree/master/calendar)                                       | 日历组件                                                             |
 | 2   | [ajax](https://github.com/dirkhe1051931999/common-demo/tree/master/ajax)                                               | ajax 封装                                                            |
 | 3   | [canvaslazyloading](https://github.com/dirkhe1051931999/common-demo/tree/master/canvaslazyloading)                     | canvas 图片懒加载                                                    |
 | 4   | [flexbox](https://github.com/dirkhe1051931999/common-demo/tree/master/flexbox)                                         | flexbox 的 DEMO                                                      |
@@ -24,6 +24,7 @@
 | 14  | [githubOAuth](https://github.com/dirkhe1051931999/common-demo/tree/master/githubOAuth)                                 | vue+koa 实现 github 授权登录                                         |
 | 15  | [tools](https://github.com/dirkhe1051931999/common-demo/tree/master/tools)                                             | javascript 数组，时间，dom，http，number，string，类型检测等工具方法 |
 | 16  | [npmrc-local](https://github.com/dirkhe1051931999/common-demo/tree/master/npmrc-local)                                 | 使用 commander 实现在执行目录下生成一个.npmrc 文件                   |
+| 18  | [icli](https://github.com/dirkhe1051931999/common-demo/tree/master/icli)                                               | 一键下载 git 作为项目初始化模板                                      |
 
 ## 许可证
 
