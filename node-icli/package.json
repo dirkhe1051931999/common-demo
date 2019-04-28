@@ -1,0 +1,28 @@
+{
+  "name": "icli",
+  "version": "0.0.1",
+  "description": "一键拉取git仓库作为开发模板",
+  "bin": {
+    "icli": "./bin/index.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node ./bin/index.js"
+  },
+  "keywords": [
+    "git",
+    "cli"
+  ],
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "cli-table": "^0.3.1",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.15.1",
+    "ora": "^2.0.0"
+  },
+  "author": "dirkhe1051931999",
+  "license": "ISC"
+}
