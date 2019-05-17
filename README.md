@@ -25,7 +25,7 @@
 | 15  | [tools](https://github.com/dirkhe1051931999/common-demo/tree/master/tools)                                             | javascript 数组，时间，dom，http，number，string，类型检测等工具方法 |
 | 16  | [npmrc-local](https://github.com/dirkhe1051931999/common-demo/tree/master/npmrc-local)                                 | 使用 commander 实现在执行目录下生成一个.npmrc 文件                   |
 | 17  | [node-icli](https://github.com/dirkhe1051931999/common-demo/tree/master/node-icli)                                     | 一键下载 git 作为项目初始化模板                                      |
-| 17  | [vue-community](https://github.com/dirkhe1051931999/common-demo/tree/master/node-icli)                                 | vue2.x 组件通信的 6 种方式                                           |
+| 17  | [vue-community](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-community)                                 | vue2.x 组件通信的 6 种方式                                           |
 
 ## 许可证
 
