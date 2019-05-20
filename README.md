@@ -27,6 +27,7 @@
 | 17  | [node-icli](https://github.com/dirkhe1051931999/common-demo/tree/master/node-icli)                                     | 一键下载 git 作为项目初始化模板                                      |
 | 18  | [vue-community](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-community)                             | vue2.x 组件通信的 6 种方式                                           |
 | 19  | [ts-study](https://github.com/dirkhe1051931999/common-demo/tree/master/ts-study)                                       | TypeScript 学习笔记                                                  |
+| 20  | [keep-alive-with-router-view](https://github.com/dirkhe1051931999/common-demo/tree/master/keep-alive-with-router-view) | vue 内置组件 keep-alive 前进刷新，后退不刷新                         |
 
 ## 许可证
 
