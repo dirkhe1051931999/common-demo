@@ -34,11 +34,11 @@
 
 8. 选择分 In dedicated config files(专门的配置文件),会自动生成一个 vue.config.js 的文件，这样不跟 package.json 揉在一起
 
-![8](/screenshot/vue-with-ts-env-8.png)
+![8](/vue-with-ts-env/screenshot/vue-with-ts-env-8.png)
 
 9. 作为一个 preset
 
-![9](/screenshot/vue-with-ts-env-9.png)
+![9](/vue-with-ts-env/screenshot/vue-with-ts-env-9.png)
 
 ## 安装 tslint
 
