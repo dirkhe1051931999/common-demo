@@ -6,31 +6,31 @@
 
 1. 选择自定义模版
 
-![1](/screenshot/vue-with-ts-env-1.png)
+![1](/vue-with-ts-env/screenshot/vue-with-ts-env-1.png)
 
 2. 选择合适的配置项
 
-![2](/screenshot/vue-with-ts-env-2.png)
+![2](/vue-with-ts-env/screenshot/vue-with-ts-env-2.png)
 
 3. 使用 vue-class-component 作为 TypeScript 装饰器
 
-![3](/screenshot/vue-with-ts-env-3.png)
+![3](/vue-with-ts-env/screenshot/vue-with-ts-env-3.png)
 
 4. 使用 babel 编译 ts
 
-![4](/screenshot/vue-with-ts-env-4.png)
+![4](/vue-with-ts-env/screenshot/vue-with-ts-env-4.png)
 
 5. 不使用 history mode for router
 
-![5](/screenshot/vue-with-ts-env-5.png)
+![5](/vue-with-ts-env/screenshot/vue-with-ts-env-5.png)
 
 6. 使用 less
 
-![6](/screenshot/vue-with-ts-env-6.png)
+![6](/vue-with-ts-env/screenshot/vue-with-ts-env-6.png)
 
 7. 选择 tslint、选择在 save 的时候 lint
 
-![7](/screenshot/vue-with-ts-env-7.png)
+![7](/vue-with-ts-env/screenshot/vue-with-ts-env-7.png)
 
 8. 选择分 In dedicated config files(专门的配置文件),会自动生成一个 vue.config.js 的文件，这样不跟 package.json 揉在一起
 
