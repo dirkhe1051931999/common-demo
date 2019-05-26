@@ -110,3 +110,7 @@ vue init SimonZhangITer/vue-typescript-template my-project
   - api http
 - shims-vue.d.ts 主要中使用jsx语法，如果不使用jsx语法，无视这个
 ```
+
+## 其他
+
+> 下一篇：[vue+ts 实现 qq 音乐首页 demo](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-pug-ts-demo)

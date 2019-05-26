@@ -1,5 +1,7 @@
 # vue+pug+typescript+tslint 的 demo
 
+> 如果对 vue+ts 的环境搭建不太熟悉，可以参考这篇[vue+typescript+tslint 环境搭建](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-with-ts-env)
+
 ## 功能
 
 1. vue-cli3.0
