@@ -30,6 +30,7 @@
 | 20  | [keep-alive-with-router-view](https://github.com/dirkhe1051931999/common-demo/tree/master/keep-alive-with-router-view) | vue 内置组件 keep-alive 前进刷新，后退不刷新                         |
 | 21  | [vue-transition](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-transition)                           | vue 实现页面切换效果                                                 |
 | 22  | [vue-with-ts-env](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-with-ts-env)                         | vue+ts 环境搭建                                                      |
+| 23  | [vue-pug-ts-demo](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-pug-ts-demo)                         | vue+ts 的 demo 实现                                                  |
 
 ## 许可证
 
