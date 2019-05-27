@@ -5,12 +5,13 @@
 ## 基本配置
 
 1. 处理 js 文件
-   > 对应文件夹 [step1](./step1/readme.md)
+   > 对应文件夹 [step1](./step1)
 2. 处理 less 文件
-   > 对应文件夹 [step2](./step2/readme.md)
+   > 对应文件夹 [step2](./step2)
 3. 插件、提取公共 js 和编译图片
-   > 对应文件夹 [step3](./step3/readme.md)
+   > 对应文件夹 [step3](./step3)
 4. webapck-dev-server 服务
+   > 对应文件夹 [step4](./step4)
 
 ## 高级配置
 

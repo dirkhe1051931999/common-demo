@@ -1,7 +1,7 @@
 {
-  "name": "step1",
+  "name": "step2",
   "version": "1.0.0",
-  "description": "step1",
+  "description": "step2",
   "main": "index.js",
   "private": true,
   "scripts": {

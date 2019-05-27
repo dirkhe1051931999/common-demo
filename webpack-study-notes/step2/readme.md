@@ -19,6 +19,13 @@ npm install --save-dev postcss-loader postcss-cssnext
 npm install --save-dev babel-polyfill babel-plugin-transform-runtime
 ```
 
+## 执行
+
+```bash
+npm install
+npm run step2
+```
+
 ## postcss.config.js
 
 ```js
@@ -26,13 +33,13 @@ module.exports = {
   plugins: {
     'postcss-cssnext': {}
   }
-}
+};
 ```
 
 ## webpack.config.js
 
 ```js
-const path = require('path')
+const path = require('path');
 module.exports = {
   mode: 'development',
   entry: ['babel-polyfill', path.join(__dirname, './src/index.js')],
@@ -58,5 +65,5 @@ module.exports = {
       }
     ]
   }
-}
+};
 ```

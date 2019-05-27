@@ -17,6 +17,13 @@ npm install --save-dev babel-preset-env
 npm install --save-dev babel-polyfill babel-plugin-transform-runtime
 ```
 
+## 执行
+
+```bash
+npm install
+npm run step1
+```
+
 ## .babelrc
 
 ```txt
@@ -33,7 +40,7 @@ npm install --save-dev babel-polyfill babel-plugin-transform-runtime
 ## webpack.config.js
 
 ```js
-const path = require('path')
+const path = require('path');
 module.exports = {
   // 模式，默认两种 production development
   mode: 'development',
@@ -56,5 +63,5 @@ module.exports = {
       }
     ]
   }
-}
+};
 ```

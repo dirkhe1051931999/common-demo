@@ -12,7 +12,7 @@
 
 ## 依赖的包
 
-> 接 step1 文件夹
+> 接 step2 文件夹
 
 ```bash
 # 生成HTML插件
@@ -27,22 +27,29 @@ npm install --save-dev uglifyjs-webpack-plugin
 npm install --save-dev url-loader file-loader
 ```
 
+## 执行
+
+```bash
+npm install
+npm run step3
+```
+
 ## 生成 HTML 插件
 
 ```js
-const htmlWebpackPlugin = require('html-webpack-plugin')
+const htmlWebpackPlugin = require('html-webpack-plugin');
 plugins: [
   new htmlWebpackPlugin({
     filename: 'index.html',
     template: path.join(__dirname, './src/index.html')
   })
-]
+];
 ```
 
 ## 生成 CSS 插件
 
 ```js
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module: {
   rules: [
     {
@@ -58,33 +65,33 @@ module: {
         'less-loader' // less -->css
       ]
     }
-  ]
+  ];
 }
 plugins: [
   new MiniCssExtractPlugin({
     filename: 'index.css'
   })
-]
+];
 ```
 
 ## 清理打包文件插件
 
 ```js
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 plugins: [
   new CleanWebpackPlugin({
     root: __dirname,
     verbose: true,
     dry: false
   })
-]
+];
 ```
 
 ## 代码压缩件插件
 
 ```js
-const uglify = require('uglifyjs-webpack-plugin')
-plugins: [new uglify()]
+const uglify = require('uglifyjs-webpack-plugin');
+plugins: [new uglify()];
 ```
 
 ## 提取公共 js
@@ -122,18 +129,18 @@ module: {
         }
       ]
     }
-  ]
+  ];
 }
 ```
 
 ## webpack.config.js
 
 ```js
-const path = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const uglify = require('uglifyjs-webpack-plugin')
+const path = require('path');
+const htmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const uglify = require('uglifyjs-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: ['babel-polyfill', path.join(__dirname, './src/index.js')],
@@ -202,5 +209,5 @@ module.exports = {
     }),
     new uglify()
   ]
-}
+};
 ```
