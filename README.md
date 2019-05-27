@@ -30,7 +30,8 @@
 | 20  | [keep-alive-with-router-view](https://github.com/dirkhe1051931999/common-demo/tree/master/keep-alive-with-router-view) | vue 内置组件 keep-alive 前进刷新，后退不刷新                         |
 | 21  | [vue-transition](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-transition)                           | vue 实现页面切换效果                                                 |
 | 22  | [vue-with-ts-env](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-with-ts-env)                         | vue+ts 环境搭建                                                      |
-| 23  | [vue-pug-ts-demo](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-pug-ts-demo)                         | vue+ts 实现 qq 音乐首页 demo                                                 |
+| 23  | [vue-pug-ts-demo](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-pug-ts-demo)                         | vue+ts 实现 qq 音乐首页 demo                                         |
+| 24  | [webpack-study-notes](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-study-notes)                 | webpack 学习笔记                                                     |
 
 ## 许可证
 
