@@ -17,3 +17,9 @@
 ## 优化方法
 
 ## 待续
+
+## 参考
+
+[Webpack 4 使用指南](https://juejin.im/post/5ad1ef5d518825556534f137#heading-21)
+[Webpack 文档](https://www.webpackjs.com/configuration/)
+[一个从基础配置到 webpack 的实现、loader 的编写、plugin 的编写的笔记](https://github.com/naihe138/webpack-notes)
