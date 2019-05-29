@@ -33,7 +33,7 @@
 
 ## 其他
 
-1. [webpack4 多页面打包脚手架工具](https://github.com/dirkhe1051931999/webpack-multi-page-scaffold)
+1. [webpack4 多页面打包](https://github.com/dirkhe1051931999/webpack-multi-page-template)
 
 ## 参考
 
