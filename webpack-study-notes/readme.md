@@ -31,9 +31,9 @@
 
 ## 优化方法
 
-## 其他
+## 进阶
 
-1. [webpack4 多页面打包](https://github.com/dirkhe1051931999/webpack-multi-page-template)
+1. [webpack4 多页面打包](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multi-page)
 
 ## 参考
 
