@@ -32,7 +32,7 @@
 | 22  | [vue-with-ts-env](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-with-ts-env)                         | vue+ts 环境搭建                                                      |
 | 23  | [vue-pug-ts-demo](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-pug-ts-demo)                         | vue+ts 实现 qq 音乐首页 demo                                         |
 | 24  | [webpack-study-notes](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-study-notes)                 | webpack 学习笔记                                                     |
-| 25  | [webpack-multi-page](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multi-page)                   | webpack 多页面打包                                                   |
+| 25  | [webpack-multi-page](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multi-page)                   | webpack 多页面打包工具                                                   |
 
 ## 许可证
 
