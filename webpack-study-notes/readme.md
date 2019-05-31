@@ -31,9 +31,11 @@
 
 ## 优化方法
 
+1. [生产环境开启 tree shaking](./step7)
+
 ## 进阶
 
-1. [webpack4 多页面打包](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multi-page)
+1. [webpack4 多页面打包](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multiPage)
 
 ## 参考
 
