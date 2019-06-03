@@ -1,0 +1,21 @@
+div {
+  color: lightcoral;
+  padding: 1px 10px 100px;
+  left: 50%;
+  vertical-align: 5px;
+}
+.ignore {
+  font-size: 28px;
+}
+.after::after {
+  content: '' !important;
+  margin-right: 20px;
+}
+.box {
+  margin-right: 20px;
+}
+p{
+  margin: 0;
+  padding: 0;
+}
+

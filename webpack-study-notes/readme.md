@@ -36,6 +36,7 @@
 ## 进阶
 
 1. [webpack4 多页面打包](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multiPage)
+2. [webapck 进阶：移动端适配问题解决方案](./step8)
 
 ## 参考
 
