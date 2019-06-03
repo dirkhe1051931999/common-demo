@@ -21,28 +21,28 @@ npm install --save-dev postcss-viewport-units
 
 ```css
 /* 一个按钮宽度为220px，以750屏为例*/
-button{
+button {
   /* 750/7.5vw= 29.3333*/
-  width:29.3333vw
+  width: 29.3333vw;
 }
 ```
 
-### 解决方法
+- 解决方法
 
-> 使用[postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport)，在构建的时候自动转成vw
+> 使用[postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport)，在构建的时候自动转成 vw
 
 ## 1px 问题
 
 > 1px 产生的原因：预期 1px 在屏幕上应该显示一个像素点，但是在 Retina 上却不是，iphone6/iphone5 的 dpr(devicePixelRadio：设备像素比）为 2，css 写的 1px 会显示成 2px，同理 dpr 为 3 的 iphone6s/iphoneX 系列，会把 1px 显示成 3px
 
-### 解决方法
+- 解决方法
 
 1. 根据 dpr 动态计算 scale，可以有效解决 1px 问题，具体细节：根据 dpr 重写 viewport meta 头的 initial-scale
-2. 使用[postcss-write-svg](https://github.com/jonathantneal/postcss-write-svg)：使用border-image配置svg绘制矢量图处理1px问题
+2. 使用[postcss-write-svg](https://github.com/jonathantneal/postcss-write-svg)：使用 border-image 配置 svg 绘制矢量图处理 1px 问题
 
 ## vw 的局限
 
-> vw在 Android 4.4 之下和 iOS8 以下的版本兼容性都存有一定的问题，可以使用[viewport-units-buggyfill](https://github.com/rodneyrehm/viewport-units-buggyfill)兼容，原理是给viewport添加对应的hack代码
+> vw 在 Android 4.4 之下和 iOS8 以下的版本兼容性都存有一定的问题，可以使用[viewport-units-buggyfill](https://github.com/rodneyrehm/viewport-units-buggyfill)兼容，原理是给 viewport 添加对应的 hack 代码
 
 ```css
 div {
@@ -62,12 +62,12 @@ div {
   window.onload = function() {
     window.viewportUnitsBuggyfill.init({
       hacks: window.viewportUnitsBuggyfillHacks
-    })
-  }
+    });
+  };
 </script>
 ```
 
-> 如果每次手动都添加hack代码，岂不是很崩溃，可以使用[postcss-viewport-units](https://github.com/springuper/postcss-viewport-units)自动添加vw的hack代码，但这种方法存在问题，postcss-viewport-units会覆盖伪类的content属性，如果一定要用伪类的content，记着加!important
+> 如果每次手动都添加 hack 代码，岂不是很崩溃，可以使用[postcss-viewport-units](https://github.com/springuper/postcss-viewport-units)自动添加 vw 的 hack 代码，但这种方法存在问题，postcss-viewport-units 会覆盖伪类的 content 属性，如果一定要用伪类的 content，记着加!important
 
 ## postcss.config.js
 
@@ -105,17 +105,17 @@ module.exports = {
     // 自动添加vw的hack代码
     require('postcss-viewport-units')({})
   ]
-}
+};
 ```
 
-### webpack.config.js
+## webpack.config.js
 
 ```js
-const path = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const uglify = require('uglifyjs-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const path = require('path');
+const htmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const uglify = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 // 通用文件，包含生产和开发的一些基本使用 webpack.common.js
 module.exports = {
   mode: 'development',
@@ -180,9 +180,31 @@ module.exports = {
     }),
     new uglify()
   ]
-}
-
+};
 ```
+
+## 1px 的 demo
+
+```less
+@svg 1px-border {
+  width: 4px;
+  height: 4px;
+  @rect {
+    fill: transparent;
+    width: 100%;
+    height: 100%;
+    stroke-width: 25%;
+    stroke: var(--color);
+  }
+}
+#real-1px {
+  border: 0;
+  border-top: 1px solid;
+  border-image: svg(1px-border param(--color red)) 1 stretch;
+}
+```
+
+> 在 less 中写@svg 时，webpack rules 中解析.less 的 loader 最后一个必须是 `postcss-loader`，因为 loader 的执行是从右往左的。
 
 ## 参考
 
