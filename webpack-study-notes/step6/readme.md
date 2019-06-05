@@ -92,7 +92,7 @@ plugins: [
 ## 自动清理构建目标产物
 
 ```js
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 plugins: [
   new CleanWebpackPlugin({
     root: __dirname,

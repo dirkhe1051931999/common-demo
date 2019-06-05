@@ -17,12 +17,12 @@ npm install --save-dev postcss-viewport-units
 
 ## px 转 vw
 
-> vw：viewport width（可视窗口宽度），当前页面是 720 页面，1vw 相当于视图的 1% 7.5px
+> vw：viewport width（可视窗口宽度），当前页面是 750 页面，1vw 相当于视图的 1% 7.5px
 
 ```css
 /* 一个按钮宽度为220px，以750屏为例*/
 button {
-  /* 750/7.5vw= 29.3333*/
+  /* 220/7.5vw= 29.3333*/
   width: 29.3333vw;
 }
 ```
