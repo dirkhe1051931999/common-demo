@@ -1,4 +1,4 @@
-# webpack 性能优化：tree-shaking
+# webpack 优化：tree-shaking
 
 ## tree-shaking 是什么及作用
 

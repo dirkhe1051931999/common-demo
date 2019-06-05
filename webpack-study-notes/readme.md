@@ -2,7 +2,7 @@
 
 > 记录 webpack 的学习笔记
 
-## 基本配置
+## <span id="1">基本配置</span>
 
 1. 处理 js 文件
    > 对应文件夹 [step1](./step1)
@@ -13,7 +13,7 @@
 4. webapck-dev-server 服务
    > 对应文件夹 [step4](./step4)
 
-## 高级配置
+## <span id="2">深入配置</span>
 
 - day-01
 
@@ -29,7 +29,7 @@
 4. 自动清理构建目标产物
    > 对应文件夹 [step6](./step6)
 
-## 优化
+## <span id="3">优化</span>
 
 - `noPath 和 exclude/include`
 
@@ -104,7 +104,7 @@ module.exports = {
 };
 ```
 
-## 进阶
+## <span id="4">进阶</span>
 
 1. [webpack4 多页面打包](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multiPage)
 2. [webapck 进阶：移动端适配](./step8)
