@@ -37,8 +37,69 @@ button {
 
 - 解决方法
 
-1. 根据 dpr 动态计算 scale，可以有效解决 1px 问题，具体细节：根据 dpr 重写 viewport meta 头的 initial-scale
+1. 根据 dpr 动态计算 initial-scale，可以有效解决 1px 问题，具体细节：根据 dpr 重写 viewport meta 头的 initial-scale
+
+```js
+window.onload = function() {
+  var dpr = parseInt(window.devicePixelRatio || 1);
+  var scale = 1 / dpr;
+  document.documentElement.setAttribute('data-dpr', dpr);
+  var content = 'width=device-width, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no';
+  var viewportEl = document.querySelector('meta[name="viewport"]');
+  viewportEl.setAttribute('content', content);
+};
+```
+
 2. 使用[postcss-write-svg](https://github.com/jonathantneal/postcss-write-svg)：使用 border-image 配置 svg 绘制矢量图处理 1px 问题
+
+```css
+@svg 1px-border {
+  width: 4px;
+  height: 4px;
+  @rect {
+    fill: transparent;
+    width: 100%;
+    height: 100%;
+    stroke-width: 25%;
+    stroke: var(--color);
+  }
+}
+#real-1px {
+  border: 0;
+  border-top: 1px solid;
+  border-image: svg(1px-border param(--color red)) 1 stretch;
+}
+```
+
+3. 使用 transform:scale 进行缩放
+
+```css
+div {
+  width: 50%;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 10px;
+  position: relative;
+  font-size: 20px;
+}
+div::after {
+  position: absolute;
+  bottom: 0;
+  content: '';
+  width: 100%;
+  border-top: solid 1px #000;
+}
+@media screen and (-webkit-min-device-pixel-radio: 2) {
+  div::after {
+    transform: scaleY(1/2);
+  }
+}
+@media screen and (-webkit-min-device-pixel-radio: 3) {
+  div::after {
+    transform: scaleY(1/3);
+  }
+}
+```
 
 ## vw 的局限
 
@@ -184,25 +245,6 @@ module.exports = {
 ```
 
 ## 1px 的 demo
-
-```less
-@svg 1px-border {
-  width: 4px;
-  height: 4px;
-  @rect {
-    fill: transparent;
-    width: 100%;
-    height: 100%;
-    stroke-width: 25%;
-    stroke: var(--color);
-  }
-}
-#real-1px {
-  border: 0;
-  border-top: 1px solid;
-  border-image: svg(1px-border param(--color red)) 1 stretch;
-}
-```
 
 > 在 less 中写@svg 时，webpack rules 中解析.less 的 loader 最后一个必须是 `postcss-loader`，因为 loader 的执行是从右往左的。
 
