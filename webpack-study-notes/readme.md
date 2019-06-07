@@ -78,27 +78,27 @@ module: {
 
 ```js
 // webpack.config.js
-const path = require('path');
-const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
+const path = require("path");
+const ModuleConcatenationPlugin = require("webpack/lib/optimize/ModuleConcatenationPlugin");
 module.exports = {
-  mode: 'production',
-  entry: ['babel-polyfill', path.join(__dirname, './src/main.js')],
+  mode: "production",
+  entry: ["babel-polyfill", path.join(__dirname, "./src/main.js")],
   output: {
-    path: path.join(__dirname, './bundle'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, "./bundle"),
+    filename: "bundle.js"
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: ['babel-loader'],
-        include: path.join(__dirname, 'src'),
+        use: ["babel-loader"],
+        include: path.join(__dirname, "src"),
         exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    mainFields: ['jsnext:main', 'browser', 'main']
+    mainFields: ["jsnext:main", "browser", "main"]
   },
   plugins: [new ModuleConcatenationPlugin()]
 };
@@ -107,7 +107,8 @@ module.exports = {
 ## <span id="4">进阶</span>
 
 1. [webpack4 多页面打包](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multiPage)
-2. [webapck 进阶：移动端适配](./step8)
+2. [移动端适配](./step8)
+3. [编写一个简单的 loader](./step10)
 
 ## 参考
 
