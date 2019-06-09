@@ -33,6 +33,7 @@
 | 23  | [vue-pug-ts-demo](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-pug-ts-demo)                         | vue+ts 实现 qq 音乐首页 demo                                         |
 | 24  | [webpack-study-notes](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-study-notes)                 | webpack 学习笔记                                                     |
 | 25  | [webpack-multiPage](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multiPage)                     | webpack 多页面打包                                                   |
+| 26  | [vue-skeleton](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-skeleton)                               | vue-cli3 中使用骨架屏                                                |
 
 ## 许可证
 
