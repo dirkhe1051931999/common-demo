@@ -241,8 +241,8 @@ export default skeletonLoading;
 - dom 对比
 
   <figure class="half">
-      <img src="https://github.com/dirkhe1051931999/common-demo/blob/master/vue-skeleton/screenshot/screenshot/skeleton-dom.png">
-      <img src="https://github.com/dirkhe1051931999/common-demo/blob/master/vue-skeleton/screenshot/screenshot/after-skeleton-dom.png">
+      <img src="https://github.com/dirkhe1051931999/common-demo/blob/master/vue-skeleton/screenshot/skeleton-dom.png">
+      <img src="https://github.com/dirkhe1051931999/common-demo/blob/master/vue-skeleton/screenshot/after-skeleton-dom.png">
   </figure>
 
 ## 源码地址
