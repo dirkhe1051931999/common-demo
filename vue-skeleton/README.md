@@ -234,19 +234,15 @@ export default skeletonLoading;
 - loading 效果
 
   <figure class="half">
-
       <img src="https://github.com/dirkhe1051931999/common-demo/blob/master/vue-skeleton/screenshot/skeleton-loading.png">
       <img src="https://github.com/dirkhe1051931999/common-demo/blob/master/vue-skeleton/screenshot/after-skeleton-loading.png">
-
   </figure>
 
 - dom 对比
 
   <figure class="half">
-
       <img src="https://github.com/dirkhe1051931999/common-demo/blob/master/vue-skeleton/screenshot/screenshot/skeleton-dom.png">
       <img src="https://github.com/dirkhe1051931999/common-demo/blob/master/vue-skeleton/screenshot/screenshot/after-skeleton-dom.png">
-
   </figure>
 
 ## 源码地址
