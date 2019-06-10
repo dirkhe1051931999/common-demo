@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      body {
+        padding: 10px;
+      }
+      h4 {
+        font-size: 16px;
+        font-weight: normal;
+        color: olivedrab;
+        padding: 5px 0;
+      }
+
+      .flex0 {
+        width: 100%;
+        box-sizing: border-box;
+        height: 200px;
+        display: flex;
+        display: inline-flex;
+        display: grid;
+        display: inline-grid;
+        border: solid 1px black;
+      }
+      .flex0 p {
+        width: 200px;
+        margin: auto;
+        text-align: center;
+      }
+
+      .flex1 {
+        display: flex;
+        justify-content: space-around;
+        border: solid 1px black;
+      }
+      .flex1 {
+        display: flex;
+      }
+
+      .flex2 {
+        display: flex;
+        border: solid 1px black;
+        height: 50px;
+        /* justify-content: center; */
+      }
+      .flex2 li {
+        margin: auto;
+        /* align-self: center; */
+      }
+
+      .flex3 {
+        display: flex;
+        justify-content: space-between;
+        border: solid 1px black;
+      }
+
+      .flex4 {
+        display: flex;
+        border: solid 1px black;
+      }
+      .flex4 li {
+        margin: auto;
+      }
+      .flex4 li:first-child {
+        margin-left: 0;
+      }
+      .flex4 li:last-child {
+        margin-right: 0;
+      }
+
+      .flex5 {
+        display: flex;
+        justify-content: space-between;
+        height: 100px;
+        border: solid 1px black;
+      }
+      .flex5 li {
+        height: 50px;
+        background: palevioletred;
+      }
+      .flex5 li:last-child {
+        align-self: flex-end;
+      }
+
+      .flex6 {
+        display: flex;
+        justify-content: space-between;
+        height: 100px;
+        border: solid 1px black;
+      }
+      .flex6 li {
+        height: 50px;
+        background: goldenrod;
+        margin-top: 0;
+      }
+      .flex6 li:last-child {
+        margin-bottom: 0;
+        margin-top: auto;
+      }
+
+      .flex7 {
+        display: flex;
+        border: solid 1px black;
+      }
+      .flex7 li {
+        width: 25%;
+      }
+      .flex7 .sign {
+        width: auto;
+        margin-left: auto;
+      }
+
+      .flex8 {
+        display: flex;
+        flex-flow: column wrap;
+        height: 200px;
+        border: solid 1px black;
+      }
+      .flex8 .header {
+        align-self: center;
+      }
+      .flex8 .footer {
+        align-self: center;
+      }
+      .flex8 .overage {
+        margin: auto 0;
+      }
+
+      .flex9 {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        background: yellowgreen;
+        border: solid 1px black;
+      }
+      .flex9 .navs {
+        display: flex;
+      }
+      .flex9 .navs li {
+        width: 25%;
+      }
+      .flex9 .navs .sign {
+        width: auto;
+        margin-left: auto;
+      }
+      .flex9 .news {
+        align-self: flex-end;
+      }
+      .flex9 .footer {
+        margin-top: auto;
+        /* 固定高度，不会因为空间不足而缩小 */
+        flex-shrink: 0;
+        height: 30px;
+        background: rgb(162, 100, 224);
+      }
+
+      .flex10 {
+        display: flex;
+        flex-flow: row wrap;
+        /* flex-flow: column wrap; */
+        height: 50px;
+        justify-content: center;
+        /* align-items: center; */
+        border: solid 1px black;
+      }
+      .flex10 li {
+        align-self: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- flex回忆 -->
+    <!-- 阮一峰flex教程：http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html -->
+    <!-- 
+      一、容器的属性
+        flex-direction  # 排列方向
+        flex-wrap # 水平方向是否换行 安卓4.3以下不能用，ios8以下不能用
+        flex-flow # <direction> <wrap>
+        justify-content #  水平方向上的元素分布
+        align-items     # 垂直方向上的元素分布
+        align-content   # 多跟轴线的对齐方式
+     -->
+    <!-- 
+      二、项目的属性
+      order # 顺序，数值越小，排列越靠前
+      flex-grow # 放大比例
+      flex-shrink # 缩小比例
+      flex-basis  # 占据水平方向的空间，可以和设置长度，代表占据空间
+      flex # <grow> < shrink> <basis>
+      align-self # 单个项目的对齐方式  会覆盖align-items属性 
+    -->
+    <!-- https://juejin.im/post/5cd111b0f265da03a00fe5d2 -->
+    <!-- 探秘 flex 上下文中神奇的自动 margin -->
+    <!-- https://juejin.im/post/5ce60afde51d455ca04361b1 -->
+    <!-- css布局的各种FC简单介绍：BFC，IFC，GFC，FFC -->
+    <!-- https://segmentfault.com/a/1190000014886753 -->
+    <!-- 
+        在 flex 格式化上下文中，设置了 margin: auto 的元素，
+        在通过 justify-content 和 align-self 进行对齐之前，任何正处于空闲的空间都会分配到该方向的自动 margin 中去
+    -->
+    <!-- 参考[Coco](https://github.com/chokcoco)的话 -->
+    <!-- 
+      1、BFC中，margin-top:auto,margin-bottom:auto，那么它们的值为0
+      2、FFC中，margin:auto的值会从设置过justify-content和align-self的dom的空闲空间中分配
+      3、FFC中，使用了margin:auto的flex子项目，其flex容器的justify-content，子项目的align-self会失效
+     -->
+    <!--BFC与FFC-->
+    <!-- 
+      FC：格式化上下文，渲染区域的渲染规则会决定子元素的排列
+      BFC：块级格式化上下文，1、内部的box垂直方向紧挨着；2、内部两个相邻的box margin会重叠，3、BFC不会和float的元素区域重叠，4、BFC里面的子元素不会影响外面的元素，5、float：left，right；absolute，fixed会形成BFC
+      FFC：自适应格式化上下文，1、display:flex会形成FFC，2、与BFC的区别是，FFC不支持float，不支持一些特殊的伪类
+     -->
+    <h4>1、水平垂直居中</h4>
+    <div class="flex0">
+      <p>水平垂直居中</p>
+    </div>
+    <!-- 使用flex实现space-around -->
+    <h4>2、使用flex实现space-around</h4>
+    <ul class="flex1">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <!-- 使用margin实现space-around -->
+    <h4>3、使用margin实现space-around</h4>
+    <ul class="flex2">
+      <li>一</li>
+      <li>二</li>
+      <li>三</li>
+    </ul>
+    <!-- 使用flex实现space-between -->
+    <h4>4、使用flex实现space-between</h4>
+    <ul class="flex3">
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+    </ul>
+    <!-- 使用margin实现space-between -->
+    <h4>5、使用margin实现space-between</h4>
+    <ul class="flex4">
+      <li>⑴</li>
+      <li>⑵</li>
+      <li>⑶</li>
+    </ul>
+    <!-- 使用flex实现align-self:flex-end-->
+    <h4>6、使用flex实现align-self:flex-end</h4>
+    <ul class="flex5">
+      <li>a-1</li>
+      <li>a-2</li>
+      <li>a-3</li>
+    </ul>
+    <!-- 使用margin实现align-self:flex-end-->
+    <h4>7、使用margin实现align-self:flex-end</h4>
+    <ul class="flex6">
+      <li>a-1</li>
+      <li>a-2</li>
+      <li>a-3</li>
+    </ul>
+    <!-- 使用margin实现不规则两端对齐布局 -->
+    <h4>8、使用margin实现不规则两端对齐布局</h4>
+    <ul class="flex7">
+      <li>导航A</li>
+      <li>导航B</li>
+      <li>导航C</li>
+      <li class="sign">登陆</li>
+      <li class="sign">注册</li>
+    </ul>
+    <!-- 使用margin实现容器中高度不固定，指定内容在剩余宽度内居中 -->
+    <h4>9、使用margin实现容器中高度不固定，指定内容在剩余宽度内居中</h4>
+    <ul class="flex8">
+      <li class="header">header</li>
+      <div class="overage">
+        <li>overage1</li>
+        <li>overage2</li>
+      </div>
+      <li class="footer">footer</li>
+    </ul>
+    <!-- 使用margin实现 粘性footer布局 -->
+    <h4>10、使用margin实现 粘性footer布局</h4>
+    <div class="flex9">
+      <ul class="navs">
+        <li>导航A</li>
+        <li>导航B</li>
+        <li>导航C</li>
+        <li class="sign">登陆</li>
+        <li class="sign">注册</li>
+      </ul>
+      <div class="news">news</div>
+      <div class="footer">footer</div>
+    </div>
+    <!-- 垂直居中 -->
+    <h4>11、flex垂直居中</h4>
+    <ul class="flex10">
+      <li>flex垂直居中1</li>
+    </ul>
+  </body>
+</html>
