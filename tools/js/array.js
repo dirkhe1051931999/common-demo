@@ -55,7 +55,7 @@ class ArrayFn {
         default:
           return arr;
       }
-    })
+    });
   }
   /**
    * 数组去重，但不能区分 2 和 '2'
@@ -63,7 +63,7 @@ class ArrayFn {
    * @param {Array} arr 数组
    */
   unique(arr) {
-    if (Array.hasOwnProperty('from')) {
+    if (Array.hasOwnProperty("from")) {
       return Array.from(new Set(arr));
     } else {
       var n = {},
@@ -90,18 +90,18 @@ class ArrayFn {
   /**
    * 求两个数组和合集，依赖unique、map、contains方法
    * union([1,2,3],[1,2,3,4]))->[1,2,3]
-   * @param {Array} a 
-   * @param {Array} b 
+   * @param {Array} a
+   * @param {Array} b
    */
   intersect(a, b) {
     var _this = this;
     a = this.unique(a);
-    return this.map(a, function (o) {
+    return this.map(a, function(o) {
       return _this.contains(b, o) ? o : null;
     });
   }
   /**
-   * 删除数组的一个元素 
+   * 删除数组的一个元素
    * remove([1,2,3],1))->[2,3]
    * @param {Array} arr 数组
    * @param {*} ele 元素
@@ -116,7 +116,7 @@ class ArrayFn {
   /**
    * 将类数组转换为数组的方法
    * formArray({'0':42,'1':52,'2':63,length:3}))->[42, 52, 63]
-   * @param {Object} ary 类数组 
+   * @param {Object} ary 类数组
    */
   formArray(ary) {
     var arr = [];
@@ -124,13 +124,13 @@ class ArrayFn {
       arr = ary;
     } else {
       arr = Array.prototype.slice.call(ary);
-    };
+    }
     return arr;
   }
   /**
    * 数组的最大值
    * max([1,2,3])->3
-   * @param {Array} arr 
+   * @param {Array} arr
    */
   max(arr) {
     return Math.max.apply(null, arr);
@@ -139,7 +139,7 @@ class ArrayFn {
   /**
    * 数组的最小值
    * min([1,2,3])->1
-   * @param {Array} arr 
+   * @param {Array} arr
    */
   min(arr) {
     return Math.min.apply(null, arr);
@@ -148,21 +148,21 @@ class ArrayFn {
   /**
    * 数组的求和
    * sum([1,2,3])->6
-   * @param {Array} arr 
+   * @param {Array} arr
    */
   sum(arr) {
     return arr.reduce((pre, cur) => {
-      return pre + cur
-    })
+      return pre + cur;
+    });
   }
 
   /**
    * 数组的平均值
    * sum([1,2,3])->2
-   * @param {Array} arr 
+   * @param {Array} arr
    */
   average(arr) {
-    return this.sum(arr) / arr.length
+    return this.sum(arr) / arr.length;
   }
   /**
    * 将数组块划分为指定大小的较小数组
@@ -171,14 +171,17 @@ class ArrayFn {
    * @param {Number} size 指定大小
    */
   chunk(arr, size) {
-    return Array.from({
-      length: Math.ceil(arr.length / size)
-    }, (v, i) => arr.slice(i * size, i * size + size));
+    return Array.from(
+      {
+        length: Math.ceil(arr.length / size)
+      },
+      (v, i) => arr.slice(i * size, i * size + size)
+    );
   }
   /**
    * 从数组中移除 falsey 值
    * compact([0, 1, false, 2, '', 3, 'a', 'e'*23, NaN, 's', 34]) -> [ 1, 2, 3, 'a', 's', 34 ]
-   * @param {Array} arr 数组 
+   * @param {Array} arr 数组
    */
   compact(arr) {
     return arr.filter(Boolean);
@@ -190,15 +193,15 @@ class ArrayFn {
    * @param {*} value 值
    */
   countOccurrences(arr, value) {
-    return arr.reduce((a, v) => v === value ? a + 1 : a + 0, 0)
+    return arr.reduce((a, v) => (v === value ? a + 1 : a + 0), 0);
   }
   /**
    * 深拼合数组
    * deepFlatten([1,[2],[[3],4],5]) -> [1,2,3,4,5]
-   * @param {Array} arr 
+   * @param {Array} arr
    */
   deepFlatten(arr) {
-    return [].concat(...arr.map(v => Array.isArray(v) ? this.deepFlatten(v) : v))
+    return [].concat(...arr.map((v) => (Array.isArray(v) ? this.deepFlatten(v) : v)));
   }
   /**
    * 返回两个数组中存在的元素的列表
@@ -208,7 +211,7 @@ class ArrayFn {
    */
   intersection(a, b) {
     const s = new Set(b);
-    return a.filter(x => s.has(x));
+    return a.filter((x) => s.has(x));
   }
   /**
    * 使用函数将数组的值映射到对象, 其中键值对由原始值作为键和映射值组成
@@ -218,7 +221,7 @@ class ArrayFn {
    * @param {Function} f 操作方法
    */
   mapObject(arr, f) {
-    return (a => (a = [arr, arr.map(fn)], a[0].reduce((acc, val, ind) => (acc[val] = a[1][ind], acc), {})))();
+    return ((a) => ((a = [arr, arr.map(fn)]), a[0].reduce((acc, val, ind) => ((acc[val] = a[1][ind]), acc), {})))();
   }
   /**
    * 从对象中选取对应于给定键的键值对
@@ -232,17 +235,106 @@ class ArrayFn {
   /**
    * 返回数组中的随机元素
    * sample([3, 7, 9, 11]) -> 9
-   * @param {Array} arr 
+   * @param {Array} arr
    */
   sample(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
   }
   /**
-   * 随机数组值的顺序
-   * shuffle([1,2,3]) -> [2,3,1]
-   * @param {Array} arr 
+   * 将数组转换成对象，并将数组对象的id作为新对象的key，并根据Key排序
+   * @param {Array} arr 数组
+   * @param {Boolean} isSort 是否排序 选填
+   * @param {String} sortName 排序的关键字 选填
+   * @param {Number} sortType 升降序，1是升序，-1是降序
+   * spreadArray(list, true, 'id', -1);
+   */
+  spreadArray(arr, isSort, sortName, sortType) {
+    if (isSort && sortName && sortType) {
+      // 默认是升序
+      let sortBy = function(propery, type) {
+        type = type ? type : 1;
+        let fn = function(obj1, obj2) {
+          if (obj1[propery] > obj2[propery]) {
+            return 1 * type;
+          } else if (obj1[propery] === obj2[propery]) {
+            return 0 * type;
+          } else {
+            return -1 * type;
+          }
+        };
+        return fn;
+      };
+      arr = arr.sort(sortBy(sortName, sortType));
+    }
+    // reduce的第二个参数初始了回调函数第一个参数的类型和值
+    // 因为chrome自己会对key升序，所以加一个'*',最后显示的时候记着split掉就行
+    let res = arr.reduce(function(res, cur) {
+      return Object.assign({ ...res }, { [cur.id + "*"]: cur });
+    }, {});
+    return res;
+  }
+  /**
+   * 获取min到max之间的整数
+   * @param {Number} min
+   * @param {Number} max
+   * getRandomInt(1,10)
+   */
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+  /**
+   * 随机数组元素
+   * @param {Array} arr
+   * shuffle(arr)
    */
   shuffle(arr) {
-    return arr.sort(() => Math.random() - 0.5)
+    arr = arr.slice();
+    for (let i = 0; i < arr.length; i++) {
+      let j = getRandomInt(0, i);
+      let t = arr[i];
+      arr[i] = arr[j];
+      arr[j] = t;
+    }
+    return arr;
+  }
+  /**
+   * 不覆盖合并对象
+   * @param {Object} foo
+   * @param {Object} bar
+   */
+  deepmerge(foo, bar) {
+    var merged = {};
+    for (var each in bar) {
+      if (foo.hasOwnProperty(each) && bar.hasOwnProperty(each)) {
+        if (typeof foo[each] == "object" && typeof bar[each] == "object") {
+          merged[each] = deepmerge(foo[each], bar[each]);
+        } else {
+          merged[each] = [foo[each], bar[each]];
+        }
+      } else if (bar.hasOwnProperty(each)) {
+        merged[each] = bar[each];
+      }
+    }
+    for (var each in foo) {
+      if (!(each in bar) && foo.hasOwnProperty(each)) {
+        merged[each] = foo[each];
+      }
+    }
+    return merged;
+  }
+  /**
+   * 展平数组
+   * @param {*} arr
+   */
+  flatten(arr) {
+    return [].concat(...arr);
+  }
+  /**
+   * 展平嵌套数组
+   * @param {*} arr
+   */
+  deepFlatten(arr) {
+    flatten = (arr) => [].concat(...arr);
+    return flatten(arr.map((x) => (Array.isArray(x) ? deepFlatten(x) : x)));
   }
 }
