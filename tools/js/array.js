@@ -269,7 +269,7 @@ class ArrayFn {
     // reduce的第二个参数初始了回调函数第一个参数的类型和值
     // 因为chrome自己会对key升序，所以加一个'*',最后显示的时候记着split掉就行
     let res = arr.reduce(function(res, cur) {
-      return Object.assign({ ...res }, { [cur.id + "*"]: cur });
+      return Object.assign({ ...res }, { [cur[sortName] + "*"]: cur });
     }, {});
     return res;
   }
