@@ -106,9 +106,10 @@ module.exports = {
 
 ## <span id="4">进阶</span>
 
-1. [webpack4 多页面打包](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multiPage)
-2. [移动端适配](./step8)
-3. [编写一个简单的 loader](./step10)
+1. [webpack4 多页面打包(.html 版本)](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multiPage)
+2. [webpack4 多页面打包(.vue 版本)](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-vue-multiPage)
+3. [移动端适配](./step8)
+4. [编写一个简单的 loader](./step10)
 
 ## 参考
 
