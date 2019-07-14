@@ -1,5 +1,5 @@
 {
-  "name": "webpack-multi-page-scaffold",
+  "name": "webpack-vue-multi-page",
   "version": "1.0.0",
   "description": "多页面（.vue版本）脚手架工具",
   "private": true,
