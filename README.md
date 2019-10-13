@@ -37,6 +37,7 @@
 | 25  | [webpack-multiPage](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-multiPage)                     | webpack 多页面打包（.html 版本）                                     |
 | 26  | [webpack-vue-multiPage](https://github.com/dirkhe1051931999/common-demo/tree/master/webpack-vue-multiPage)             | webpack 多页面打包 （.vue 版本）                                     |
 | 27  | [vue-skeleton](https://github.com/dirkhe1051931999/common-demo/tree/master/vue-skeleton)                               | vue-cli3 中使用骨架屏                                                |
+| 28  | [vue3-responsive](https://github.com/dirkhe1051931999/common-demo/tree/master/vue3-responsive)                               | vue3 的数据响应原理和实现                                               |
 
 ## :rainbow: 许可证
 
