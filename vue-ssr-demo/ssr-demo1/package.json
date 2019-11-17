@@ -1,0 +1,22 @@
+{
+  "name": "vue-ssr-blog",
+  "version": "1.0.0",
+  "description": "webpack+koa2+vue 实现服务端渲染",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ssr",
+    "vue",
+    "koa2"
+  ],
+  "author": "dirkhe1051931999",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-router": "^7.4.0",
+    "vue": "^2.6.10",
+    "vue-server-renderer": "^2.6.10"
+  }
+}

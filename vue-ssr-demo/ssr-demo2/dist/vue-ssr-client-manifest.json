@@ -1,0 +1,65 @@
+{
+  "publicPath": "/",
+  "all": [
+    "static/css/main.fbc176202e6d1d69cb19.css",
+    "static/js/1.a457036d846797e73f9f.js",
+    "static/js/2.fae100210c87415e5457.js",
+    "static/js/main.20ae5c1d1e2c4b2a751a.js"
+  ],
+  "initial": [
+    "static/css/main.fbc176202e6d1d69cb19.css",
+    "static/js/main.20ae5c1d1e2c4b2a751a.js"
+  ],
+  "async": [
+    "static/js/1.a457036d846797e73f9f.js",
+    "static/js/2.fae100210c87415e5457.js"
+  ],
+  "modules": {
+    "302cc507": [
+      0,
+      3
+    ],
+    "4b2b5865": [
+      2
+    ],
+    "d3972eac": [
+      0,
+      3
+    ],
+    "3b762edb": [
+      0,
+      3
+    ],
+    "52ff009a": [
+      0,
+      3
+    ],
+    "19cf949f": [
+      0,
+      3
+    ],
+    "55e9e686": [
+      0,
+      3
+    ],
+    "e63fe406": [
+      0,
+      3
+    ],
+    "2ffde79e": [
+      1
+    ],
+    "648fd51c": [
+      0,
+      3
+    ],
+    "4f496a1e": [
+      0,
+      3
+    ],
+    "b7aa9878": [
+      0,
+      3
+    ]
+  }
+}
