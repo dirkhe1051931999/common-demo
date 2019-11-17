@@ -46,35 +46,38 @@ npm run step6
 
 ```js
 module.exports = {
-  plugins: [require('postcss-cssnext')({}), require('postcss-px2rem')({ remUnit: 75 })]
-}
+  plugins: [
+    require("postcss-cssnext")({}),
+    require("postcss-px2rem")({ remUnit: 75 })
+  ]
+};
 ```
 
 ## 构建时复制指定的文件到指定文件夹
 
 ```js
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 plugins: [
   new CopyWebpackPlugin([
     {
       // src下的index.html是静态资源，进行复制
-      from: path.join(__dirname, './src/index.html'),
-      to: path.join(__dirname, './bundle/assets')
+      from: path.join(__dirname, "./src/index.html"),
+      to: path.join(__dirname, "./bundle/assets")
     }
   ])
-]
+];
 ```
 
 ## 静态资源内联，css 插入 header 头中
 
 ```js
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
+const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 plugins: [
   new htmlWebpackPlugin({
     //压缩模版
-    template: path.join(__dirname, './src/index.html'),
+    template: path.join(__dirname, "./src/index.html"),
     // 生成的文件名
-    filename: 'main.html',
+    filename: "main.html",
     minify: {
       // 去掉html的属性双引号
       removeAttributeQuotes: true,
@@ -83,57 +86,57 @@ plugins: [
     },
     // 内联哪些文件
     inlineSource: /.css$/,
-    title: 'production'
+    title: "production"
   }),
   new HtmlWebpackInlineSourcePlugin()
-]
+];
 ```
 
 ## 自动清理构建目标产物
 
 ```js
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 plugins: [
   new CleanWebpackPlugin({
     root: __dirname,
     verbose: true,
     dry: false
   })
-]
+];
 ```
 
 ## webpack.config.js
 
 ```js
-const path = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const uglify = require('uglifyjs-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
+const path = require("path");
+const htmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const uglify = require("uglifyjs-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 // 通用文件，包含生产和开发的一些基本使用 webpack.common.js
 module.exports = {
-  mode: 'development',
-  entry: ['babel-polyfill', path.join(__dirname, './src/index.js')],
+  mode: "development",
+  entry: ["babel-polyfill", path.join(__dirname, "./src/index.js")],
   output: {
-    path: path.join(__dirname, './bundle'),
-    filename: 'app.[hash:6].js',
-    chunkFilename: '[name].bundle.js'
+    path: path.join(__dirname, "./bundle"),
+    filename: "app.[hash:6].js",
+    chunkFilename: "[name].bundle.js"
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: ['babel-loader'],
-        include: path.join(__dirname, 'src'),
+        use: ["babel-loader"],
+        include: path.join(__dirname, "src"),
         exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: "url-loader",
             options: {
               limit: 1024
             }
@@ -142,15 +145,15 @@ module.exports = {
       },
       {
         test: /.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
       },
       {
         test: /.less$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader', // @import 解析
-          'postcss-loader',
-          'less-loader' // less -->css
+          "css-loader", // @import 解析
+          "postcss-loader",
+          "less-loader" // less -->css
         ]
       }
     ]
@@ -158,9 +161,9 @@ module.exports = {
   plugins: [
     new htmlWebpackPlugin({
       //压缩模版
-      template: path.join(__dirname, './src/index.html'),
+      template: path.join(__dirname, "./src/index.html"),
       // 生成的文件名
-      filename: 'main.html',
+      filename: "main.html",
       minify: {
         // 去掉html的属性双引号
         removeAttributeQuotes: true,
@@ -169,7 +172,7 @@ module.exports = {
       },
       // 内联哪些文件
       inlineSource: /.css$/,
-      title: 'production'
+      title: "production"
     }),
     new HtmlWebpackInlineSourcePlugin(),
     new CleanWebpackPlugin({
@@ -178,16 +181,16 @@ module.exports = {
       dry: false
     }),
     new MiniCssExtractPlugin({
-      filename: 'index.css'
+      filename: "index.css"
     }),
     new uglify(),
     new CopyWebpackPlugin([
       {
         // src下的index.html是静态资源，进行复制
-        from: path.join(__dirname, './src/index.html'),
-        to: path.join(__dirname, './bundle/assets')
+        from: path.join(__dirname, "./src/index.html"),
+        to: path.join(__dirname, "./bundle/assets")
       }
     ])
   ]
-}
+};
 ```
