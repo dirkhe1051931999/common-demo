@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "jsonwebtoken": "^8.5.0",
     "koa": "^2.7.0",
     "koa-jwt": "^3.5.1",
