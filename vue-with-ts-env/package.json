@@ -18,7 +18,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.3",
     "@vue/cli-plugin-typescript": "^3.0.3",
-    "@vue/cli-service": "^3.0.3",
+    "@vue/cli-service": "^5.0.8",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "tslint-eslint-rules": "^5.4.0",
